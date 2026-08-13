@@ -1,0 +1,7 @@
+title: OSM for Cities — talks
+description: Conference talks about OSM for Cities, a platform for browsing OpenStreetMap data city by city.
+theme: jekyll-theme-minimal
+
+# README.md is for people arriving via GitHub; index.md is the site itself.
+exclude:
+  - README.md
