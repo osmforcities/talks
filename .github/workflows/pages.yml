@@ -32,7 +32,11 @@ jobs:
           source: ./
           destination: ./_site
 
+      # Explicit because the deck's package.json has no `packageManager` field.
+      # The lockfile pins resolution, so the major is all this needs to fix.
       - uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
       - uses: actions/setup-node@v4
         with:
