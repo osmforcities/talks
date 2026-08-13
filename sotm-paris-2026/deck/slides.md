@@ -34,7 +34,7 @@ path can be verified on its own.
 # Asset check
 
 Public assets are referenced with an absolute path, which has to survive
-`slidev build --base /talks/sotm-paris-2026/deck/`. If this image renders on the
+`slidev build --base /talks/sotm-paris-2026/`. If this image renders on the
 deployed site, the real deck's QR slide will too.
 
 <img src="/qr-osmforcities.svg" alt="QR code linking to osmforcities.org" style="width: 12rem" />

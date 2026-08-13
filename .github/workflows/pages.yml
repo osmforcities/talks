@@ -53,12 +53,13 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       # --base must match the deployed path or every asset 404s.
-      - run: pnpm exec slidev build --base /talks/sotm-paris-2026/deck/ --out dist
+      - run: pnpm exec slidev build --base /talks/sotm-paris-2026/ --out dist
         working-directory: sotm-paris-2026/deck
 
       # sudo because jekyll-build-pages is a Docker action running as root, so it
-      # leaves _site root-owned.
-      - run: sudo cp -r sotm-paris-2026/deck/dist _site/sotm-paris-2026/deck
+      # leaves _site root-owned. Jekyll skips this directory entirely, so the copy
+      # is what creates it.
+      - run: sudo cp -r sotm-paris-2026/deck/dist _site/sotm-paris-2026
 
       - uses: actions/upload-pages-artifact@v5
 
