@@ -11,7 +11,9 @@
         --ink: #171717;
         --muted: #737373;
         --rule: #e5e5e5;
-        --accent: #57814c;
+        /* Darker than the deck's #57814c, which lands at 4.52:1 on white — over
+           the 4.5 AA threshold by 0.02, at 14px. This is 6.37:1. */
+        --accent: #45683c;
         --paper: #fff;
       }
 
@@ -38,6 +40,14 @@
         margin: 0 0 1rem;
         font-size: 1.5rem;
         font-weight: 600;
+      }
+
+      /* Most visitors arrive from a conference programme with no idea what the
+         project is. One sentence, then out of the way. */
+      .intro {
+        margin: 0;
+        max-width: 30rem;
+        color: var(--muted);
       }
 
       /* Years are signposts, not content — small and quiet, so the talk titles
@@ -86,14 +96,14 @@
         border-top: 1px solid var(--rule);
       }
 
-      /* The footer is whatever follows the rule — no extra markup needed for it. */
-      hr ~ p {
+      .footer-links {
+        margin: 0;
         color: var(--muted);
         font-size: 0.875rem;
       }
     </style>
   </head>
   <body>
-    {{ content }}
+    <main>{{ content }}</main>
   </body>
 </html>
