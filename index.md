@@ -1,5 +1,6 @@
 ---
-title: Talks
+layout: default
+title: OSM for Cities — talks
 ---
 
 # OSM for Cities — talks

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}" />
+    <style>
+      /* Accent matches the deck, so the index and the slides read as one thing. */
+      :root {
+        --ink: #171717;
+        --muted: #737373;
+        --rule: #e5e5e5;
+        --accent: #57814c;
+        --paper: #fff;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --ink: #ededed;
+          --muted: #a3a3a3;
+          --rule: #333;
+          --accent: #9ec091;
+          --paper: #171717;
+        }
+      }
+
+      body {
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 5rem 1.5rem;
+        background: var(--paper);
+        color: var(--ink);
+        font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+
+      h1 {
+        margin: 0 0 2.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li + li {
+        margin-top: 0.75rem;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      hr {
+        margin: 3.5rem 0 1.5rem;
+        border: 0;
+        border-top: 1px solid var(--rule);
+      }
+
+      /* The footer is whatever follows the rule — no extra markup needed for it. */
+      hr ~ p {
+        color: var(--muted);
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>

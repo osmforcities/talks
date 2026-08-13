@@ -1,6 +1,9 @@
 title: OSM for Cities — talks
 description: Conference talks about OSM for Cities, a platform for browsing OpenStreetMap data city by city.
-theme: jekyll-theme-minimal
+
+# No theme. jekyll-theme-minimal frames every page in a sidebar of project chrome,
+# which is more furniture than a three-line talk index needs. _layouts/default.html
+# is the whole design instead.
 
 # README.md is for people arriving via GitHub; index.md is the site itself.
 # Each talk directory is a Slidev deck built by the Pages workflow, not by Jekyll —
