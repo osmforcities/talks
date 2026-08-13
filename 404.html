@@ -1,0 +1,22 @@
+---
+permalink: /404.html
+---
+
+<script>
+  // Slidev routes slides as real paths (/deck/3), but GitHub Pages only honours a
+  // 404.html at the site root — a deck's own SPA fallback is never reached. So a
+  // reload mid-deck, or a shared link to a slide, lands here. Send those back to
+  // the deck instead of a dead end.
+  //
+  // The slide number is lost: Slidev has no supported way to be told which slide
+  // to open from outside the app. Landing on slide 1 beats landing on a 404.
+  //
+  // The length guard matters — without it, a genuinely missing deck root would
+  // redirect to itself forever.
+  var deck = location.pathname.match(/^(\/talks\/[^/]+\/deck\/)/);
+  if (deck && location.pathname !== deck[1]) location.replace(deck[1]);
+</script>
+
+<h1>Page not found</h1>
+
+<p><a href="/talks/">Back to the talks index</a></p>
