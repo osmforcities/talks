@@ -9,7 +9,7 @@ OpenStreetMap data browsable and downloadable city by city.
 
 ## Upcoming
 
-- [**Breaking the data waste cycle**](sotm-paris-2026/) — State of the Map 2026, Paris
+- **[Breaking the data waste cycle](sotm-paris-2026/)** — State of the Map 2026, Paris
 
 ## Past
 
