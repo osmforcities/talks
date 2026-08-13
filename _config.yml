@@ -3,5 +3,8 @@ description: Conference talks about OSM for Cities, a platform for browsing Open
 theme: jekyll-theme-minimal
 
 # README.md is for people arriving via GitHub; index.md is the site itself.
+# Deck sources are built by Slidev in the Pages workflow, not by Jekyll — left in,
+# Jekyll would try to render slides.md and choke on Slidev's repeated `---`.
 exclude:
   - README.md
+  - sotm-paris-2026/deck

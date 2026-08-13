@@ -1,0 +1,68 @@
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; queue instead of cancelling a half-finished one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Runs on PRs too, so a broken build is caught before it can reach the live site.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      # Jekyll renders the site index and the per-talk landing pages. Deck sources
+      # are excluded in _config.yml — Slidev builds those below.
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: sotm-paris-2026/deck/pnpm-lock.yaml
+
+      # playwright-chromium is a dependency for PDF export only. Without this the
+      # job downloads ~150 MB of Chromium it never uses.
+      - run: pnpm install --frozen-lockfile
+        working-directory: sotm-paris-2026/deck
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+      # --base must match the deployed path or every asset 404s.
+      - run: pnpm exec slidev build --base /talks/sotm-paris-2026/deck/ --out dist
+        working-directory: sotm-paris-2026/deck
+
+      - run: cp -r sotm-paris-2026/deck/dist _site/sotm-paris-2026/deck
+
+      - uses: actions/upload-pages-artifact@v3
+
+  # Gated on main: the PR proves the build is green without touching the live site.
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

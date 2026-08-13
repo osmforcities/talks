@@ -1,0 +1,16 @@
+{
+  "name": "sotm-paris-2026-deck",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export --per-slide --output osm-for-cities-sotm-paris-2026.pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.19.0",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.56.0",
+    "vue": "^3.5.13"
+  }
+}
