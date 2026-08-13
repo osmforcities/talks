@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "slidev --open",
-    "build": "slidev build",
+    "build": "slidev build --without-notes",
     "export": "slidev export --per-slide --output osm-for-cities-sotm-paris-2026.pdf"
   },
   "dependencies": {

@@ -5,7 +5,9 @@ title: Talks about OSM for Cities
 
 # Talks about OSM for Cities
 
-<p class="intro">Slides and abstracts from each session.</p>
+<p class="intro">Slides and abstracts from each session.
+<span class="caveat">The decks are fixed-size slides rather than a web page, so they
+read best on a laptop.</span></p>
 
 <!--
 Every link here opens in a new tab, because the slide decks are single-page apps

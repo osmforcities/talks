@@ -50,6 +50,16 @@
         color: var(--muted);
       }
 
+      /* Slidev scales a fixed 1280x720 canvas to fit the viewport and never
+         reflows, so on a phone a deck is a small letterboxed strip. Better to say
+         so here than to let someone tap through to 5px text. Its own line, quieter
+         than the sentence above it, because it is a footnote and not the pitch. */
+      .intro .caveat {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+      }
+
       /* Years are signposts, not content — small and quiet, so the talk titles
          stay the largest thing on the page. */
       h2 {

@@ -53,7 +53,13 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       # --base must match the deployed path or every asset 404s.
-      - run: pnpm exec slidev build --base /talks/sotm-paris-2026/ --out dist
+      #
+      # --without-notes is not optional. Speaker notes are compiled into the SPA's
+      # slide data, so a normal build publishes every one of them — the /notes route
+      # renders them, and the strings sit in the JS bundle regardless of routing.
+      # Notes are written for the presenter, not the audience. This flag affects the
+      # published build only; `pnpm dev` keeps them for presenter mode.
+      - run: pnpm exec slidev build --base /talks/sotm-paris-2026/ --without-notes --out dist
         working-directory: sotm-paris-2026/deck
 
       # sudo because jekyll-build-pages is a Docker action running as root, so it
