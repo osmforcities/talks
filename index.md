@@ -5,10 +5,6 @@ title: Talks about OSM for Cities
 
 # Talks about OSM for Cities
 
-<p class="intro">Slides and abstracts from each session.
-<span class="caveat">The decks are fixed-size slides rather than a web page, so they
-read best on a laptop.</span></p>
-
 <!--
 Every link here opens in a new tab, because a deck replaces this page with no way
 back — a Slidev build is a single-page app, and a PDF hands the tab to the viewer.
@@ -49,7 +45,9 @@ online.
        aria-label="Slides for OSM for Cities: urban data from OpenStreetMap, PDF, 2.8 MB, opens in a new tab">Slides</a>
     <!-- 2 753 554 bytes. Rounded up rather than to nearest — understating a
          download is the one direction that costs the reader something. -->
-    <span class="meta">PDF, 2.8&nbsp;MB</span>
+    <span class="meta">PDF, 2.8&nbsp;MB</span> ·
+    <a href="https://talks.osgeo.org/sotm2024-latam/talk/LWT3W3/" target="_blank" rel="noopener"
+       aria-label="Programme entry for OSM for Cities: urban data from OpenStreetMap, opens in a new tab">Programme</a>
   </p>
 </article>
 
@@ -65,7 +63,13 @@ online.
   <p class="links">
     <a href="sotm-us-2023/osm-for-cities-sotm-us-2023.pdf" target="_blank" rel="noopener"
        aria-label="Slides for OSM for Cities, PDF, 1.3 MB, opens in a new tab">Slides</a>
-    <span class="meta">PDF, 1.3&nbsp;MB</span>
+    <span class="meta">PDF, 1.3&nbsp;MB</span> ·
+    <!-- The whole schedule, not the session: this programme ran on Sessionize, which
+         opens each session in a modal off href="#". There is no per-session URL to
+         link to. The talk is Friday 9 June, 12:05, listed under its programme title
+         "Simplifying access to OpenStreetMap data for urban planning". -->
+    <a href="https://2023.stateofthemap.us/schedule/" target="_blank" rel="noopener"
+       aria-label="Programme for OSM for Cities, opens in a new tab">Programme</a>
   </p>
 </article>
 
