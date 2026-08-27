@@ -1,0 +1,691 @@
+/* OSM for Cities deck identity — mirrors app/src/app/globals.css so the deck and the
+   live demo read as one thing when we alt-tab at minute 13. */
+
+/* Geist, self-hosted. One variable file per subset covers every weight the deck uses
+   (400/500/600), so there is nothing to fetch at render time — see the `fonts` block
+   in slides.md. `swap` is deliberate: with the file served from the same origin it
+   never actually swaps, and if the file is ever missing the deck still reads.
+   Geist Mono is not declared: the only fenced blocks are Mermaid, which renders SVG. */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/geist-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* A real italic, not a synthesised slant. Without this face the browser obliques the
+   upright by shearing it, which at cover size shows as mechanically even stroke angles
+   and no true italic letterforms — most visibly on the single-storey a. */
+@font-face {
+  font-family: "Geist";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/geist-latin-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* São Paulo, Île-de-France and the rest of the deck's accented names all live in the
+   latin range above; latin-ext is 16 KB of insurance for a name added later. */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/geist-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Dark deck — settled 2026-08-23. The ground sits below olive-700 so every stop of
+   the app's olive ramp reads *on* it; text pairs are chosen to clear WCAG AAA (7:1),
+   which is the a11y story of the product made visible. --ofc-paper stays true white:
+   it is the QR plates and screenshot frames, not the page. */
+:root {
+  --ofc-ground: #1a2b17;
+  --ofc-ink: #f5f4ef; /* 15.2:1 on ground */
+  --ofc-muted: #b8c4b2; /* 8.5:1 */
+  --ofc-sub: #cce4c6; /* olive-200, 10.8:1 — the spoken-line tier under headlines */
+  --ofc-line: rgba(245, 244, 239, 0.18);
+  --ofc-paper: #ffffff;
+
+  /* Design Atlas olive ramp, from app/src/app/globals.css. Accent moves up the ramp
+     to olive-400: the light-deck #57814c is ~2.7:1 on this ground, fine on white but
+     lost here. Deep flips meaning: it was the darkest emphasis tier on white, so on
+     dark it becomes the lightest — olive-200. */
+  --ofc-accent: #82bf71;
+  --ofc-accent-soft: rgba(166, 209, 156, 0.12);
+  --ofc-accent-deep: #cce4c6;
+
+  --slidev-theme-primary: var(--ofc-accent);
+}
+
+/* The map texture: irregular city blocks, one 320px SVG tile inlined as a data URI
+   (self-contained, ~600 bytes). Streets at uneven offsets so no two blocks match, the
+   tile edges double as major avenues, and two blocks carry a 3% fill — parks. Chosen
+   from a six-option sampler on 2026-08-23 (no diagonal: it distracted on the cover).
+   All strokes at 5-8% warm white: texture when you look, invisible while reading.
+   background-image, not a pseudo-element — Shot slides cover it with their own stage
+   and nothing has to manage stacking order. */
+.slidev-layout {
+  background-color: var(--ofc-ground);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cg fill='%23f5f4ef' fill-opacity='0.028'%3E%3Crect x='76' y='54' width='66' height='50'/%3E%3Crect x='202' y='176' width='58' height='68'/%3E%3C/g%3E%3Cg fill='none' stroke='%23f5f4ef' stroke-opacity='0.055' stroke-width='1'%3E%3Cpath d='M74 0V320M144 0V320M200 0V320M262 0V320'/%3E%3Cpath d='M0 52H320M0 106H320M0 174H320M0 246H320'/%3E%3C/g%3E%3Cg fill='none' stroke='%23f5f4ef' stroke-opacity='0.085' stroke-width='2'%3E%3Cpath d='M0.5 0V320M0 0.5H320'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  color: var(--ofc-ink);
+  padding: 3rem 3.5rem;
+}
+
+.slidev-layout h1 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ofc-ink);
+}
+
+.slidev-layout h2 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ofc-ink);
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  color: var(--ofc-ink);
+  line-height: 1.5;
+}
+
+.slidev-layout strong {
+  color: var(--ofc-accent-deep);
+  font-weight: 600;
+}
+
+/* Quiet, non-decorative bullets — a 20-minute talk does not need dots. */
+.slidev-layout ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.slidev-layout ul > li {
+  padding-left: 1.1em;
+  position: relative;
+}
+
+.slidev-layout ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.42em;
+  height: 2px;
+  background: var(--ofc-accent);
+}
+
+/* One-line statement slides: the frame, the turn, the closing message. */
+.statement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.statement h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  max-width: 20ch;
+}
+
+.statement .sub {
+  margin-top: 1.5rem;
+  font-size: 1.35rem;
+  color: var(--ofc-sub);
+  max-width: 48ch;
+}
+
+/* The deck's one ornament: the app's freshness-band ramp, quoted as a short bar on
+   the two cover bookends only — a logo on the front and back cover. Wayfinding inside
+   the deck belongs to the rail's running head. Hard stops, not a gradient — the
+   product draws bands, not fades. */
+.ramp {
+  width: 14rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  margin-top: 0.9rem;
+  background: linear-gradient(
+    to right,
+    #a6d19c 0 25%,
+    #82bf71 25% 50%,
+    #57814c 50% 75%,
+    #3f5c39 75% 100%
+  );
+}
+
+.ramp + .sub {
+  margin-top: 1.25rem;
+}
+
+/* Composition varies by act so the deck does not land on a single beat: story
+   slides anchor low like film title cards, idea slides keep the centered default,
+   the breath slide and the ask center fully. 5.5rem clears the rail band. */
+.statement.anchor-low {
+  justify-content: flex-end;
+  padding-bottom: 5.5rem;
+}
+
+.statement.centered {
+  align-items: center;
+  text-align: center;
+}
+
+.statement.centered h1,
+.statement.centered .sub {
+  max-width: none;
+}
+
+.statement.ask h1 {
+  font-size: 4rem;
+}
+
+/* Slidev's hover toolbar is anchored bottom-left, directly over the dot strip — and
+   it pops up on the projector at any stray mouse move. The dots cover navigation now;
+   keyboard shortcuts and /presenter are unaffected. Scoped to #slide-container so
+   presenter mode keeps its own controls. */
+#slide-container > .absolute.bottom-0.left-0 {
+  display: none;
+}
+
+/* The cover shares the deck's ground now — the whole deck lives in the cover's
+   world, so the bookends differ by composition, not by color. Slidev's default
+   theme styles cover layouts with background-size: cover, which stretched one
+   240px tile across the whole slide — giant blocks, and a street line landing
+   level with the ramp bar. The doubled class outranks the theme rule; the 20px
+   nudge then parks the bar mid-block. */
+.slidev-layout.cover {
+  color: var(--ofc-ink);
+  /* !important: the theme sets these as inline styles on the element, and inline
+     loses only to !important. */
+  background-size: 240px 240px !important;
+  background-position: 0 20px !important;
+  background-repeat: repeat !important;
+}
+
+/* Cover composition: title mass sits optically centred, credit block is pinned to
+   the bottom edge under a hairline. Two tiers rather than one 0.95rem run-on line —
+   the speaker's name is the thing the audience reads while waiting for you to start,
+   so it gets its own size step above the event and the URL.
+
+   Muting is done with `opacity`, not `color`: markdown wraps some of these in a <p>,
+   and `.slidev-layout.cover p` sets colour directly on that <p>, which outranks any
+   colour inherited from the wrapper. Opacity applies to the wrapper regardless. */
+/* Slidev wraps slide content in an auto-height `div.my-auto`, so a bare `height: 100%`
+   here resolves against 227px of content and the credit block floats mid-slide. Stretch
+   that wrapper first. `> *` rather than the wrapper's Tailwind class names, which are
+   framework internals and can be renamed by an upgrade. */
+.slidev-layout.cover > * {
+  height: 100%;
+}
+
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* `flex: 1` rather than `margin: auto 0` — auto margins absorb the free space on both
+   sides of the head, which leaves the credit block sitting directly under the tagline
+   instead of on the bottom edge. */
+.cover-head {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The session title, set verbatim so the cover matches the programme word for word.
+   Bold upright, per Vitor 2026-08-23 — the italic read as decoration, and the title
+   is a statement. The ramp bar under it is the ornament instead.
+
+   The line break is hard-coded at the colon in slides.md rather than left to wrapping:
+   free wrapping broke it mid-phrase ("…Breaking the data / waste cycle"), which splits
+   the subtitle across both lines. No max-width, or the break would fight the wrap. */
+.cover-page h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+/* 34ch: holds the opening tagline on one line and the closing one on two. */
+.cover-tagline {
+  margin-top: 1.25rem;
+  font-size: 1.75rem;
+  max-width: 34ch;
+  opacity: 0.82;
+}
+
+/* Closing bookend: the statement keeps the left column, the QR takes the right. This
+   slide is on screen for the whole Q&A — five to ten minutes, longer than any other
+   slide in the deck — so it is the one worth pointing a camera at. The QR on the
+   invitation slide disappears the moment you advance past it. */
+.cover-head-split {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* The text column takes the remaining width. Without this it shrink-to-fits against the
+   QR block and re-wraps the copy, which defeats the hand-authored <br> breaks. */
+.cover-head-split > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+/* The closing headline is a question to the room, not "Thank you" — this slide is up
+   for the whole Q&A, the longest-held surface in the deck, so it does work: it prompts
+   the questions and carries the ask. Upright and smaller than the cover's italic
+   3.6rem, because it is a sentence to read rather than a title to recognise. */
+/* No max-width: the flex row already reserves the QR column, and a character cap was
+   wrapping a 26-character question onto two lines with "for?" orphaned on the second.
+   A short question reads hardest when it lands in one line. */
+.cover-head-split h1 {
+  font-size: 2.9rem;
+  font-style: normal;
+  line-height: 1.15;
+}
+
+/* The message sits under the question, so the slide reinforces the argument as well as
+   asking for a response — both sources put the key takeaway on the final slide. */
+/* No max-width: the breaks are authored with <br> in slides.md, so the copy lands where
+   it was written to land instead of rewrapping at a character count. */
+.cover-head-split .cover-tagline {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  /* 46ch, not the base rule's 34ch: wide enough for the authored line breaks to
+     survive, short enough that the copy does not run the full slide width, where
+     the eye loses the start of the next line. */
+  max-width: 46ch;
+}
+
+/* A column rather than a row: it uses the vertical space this slide has spare, lets
+   the code grow, and gives the copy the full width of the left column instead of
+   competing for it. */
+.cover-qr-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex: none;
+}
+
+.cover-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  flex: none;
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* Muting the block would mute the code's white plate with it, costing scan contrast
+   for nothing. Only the caption is secondary. */
+.cover-qr span {
+  opacity: 0.82;
+}
+
+/* The SVG carries a white plate already, but qrencode was run with `-m 1` and the
+   spec wants a 4-module quiet zone — the padding supplies the rest, and keeps the
+   code off the dark panel where a scanner would have to find its own edges. */
+/* 11rem: ~13.8% of slide width. A single code (the thread QR was dropped) has the
+   column to itself, and a larger code is scannable from further back, which is the
+   only thing a QR on a projector is for.
+
+   `display: block`, not the inline default: an inline img sits on the text baseline
+   and leaves a few pixels of descender gap beneath it, which knocks its caption out
+   of line with its label. */
+.cover-qr img {
+  display: block;
+  width: 11rem;
+  height: 11rem;
+  padding: 0.7rem;
+  border-radius: 0.4rem;
+  background: var(--ofc-paper);
+}
+
+/* The byline belongs to the title block, not the footer. In the footer the name sat
+   diagonally opposite the event line with the whole middle of the slide empty between
+   them; attached here it reads in order — what this is, what it is about, who is
+   saying it — and the footer is left holding one fact instead of two orphans. */
+.cover-byline {
+  margin-top: 2.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* Fine print, deliberately the quietest thing on the slide, and aligned to the bottom of
+   the byline block so it sits level with the handles rather than with the name. Level
+   with the name it read as part of the byline, as though the person were the thing being
+   supported; level with the handles it reads as what it is, a footnote. */
+.cover-credit {
+  align-self: flex-end;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  text-align: right;
+}
+
+/* &hearts; rather than an emoji: the emoji renders in a different typeface at a
+   different weight and cannot be recoloured. 4.3:1 on the deep olive panel. */
+.cover-credit .heart {
+  color: #f0803c;
+  opacity: 1;
+}
+
+/* The URL sits under the name rather than in the footer: it is the one actionable
+   thing on the cover, and attached to the byline it reads as "this person, this
+   project" instead of floating as loose metadata. */
+.cover-url {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 400;
+  opacity: 0.72;
+}
+
+/* No rule and no top padding: the progress rail already draws a horizontal band across
+   the bottom of every slide, so a second line above it separated nothing. The bottom
+   margin is the breathing room — without it the handles sit directly on the rail and
+   the two read as one crowded strip. */
+.cover-meta {
+  display: flex;
+  justify-content: space-between;
+  /* Baseline, not flex-end: it sets the name level with whatever sits opposite, and
+     lets secondary lines drop below rather than dragging the name down with them. */
+  align-items: baseline;
+  gap: 2rem;
+  /* 3rem, measured: at 1.75rem the byline cleared the rail by 41px of a 720 canvas,
+     which reads as one crowded strip from the back of a room. This gives 61px. */
+  margin-bottom: 3rem;
+}
+
+/* The cover's conference line sits at the top of the slide, so it needs no clearance
+   from the rail at the bottom. */
+.cover-meta-plain {
+  margin-bottom: 0;
+}
+
+.cover-speaker {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* The handle is the actionable half of the credit. Same name on all three, including
+   community.openstreetmap.org, where Discourse personal messages are how a stranger
+   reaches you — so the icons carry the "where" and the text stays short. */
+.cover-handle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.4rem;
+  margin-top: 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 400;
+  opacity: 0.72;
+}
+
+.cover-handle .ident {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* 1.15em, above the text size rather than matched to it: the OSM mark is a magnifier
+   over a globe and turns to mush at handle size, while the flatter GitHub and Mastodon
+   marks carry the extra size without shouting. */
+.cover-handle svg {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+/* 1.05rem = 2.3% of slide height, over the 1.9% secondary bar even at 0.72 opacity
+   (7.3:1 measured on the deep-olive panel). */
+.cover-event {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: right;
+  opacity: 0.72;
+}
+
+/* Repeats the element list from the rules above because those target elements
+   directly (`.slidev-layout p`), which outranks styling the wrapper. */
+.slidev-layout.cover h1,
+.slidev-layout.cover h2,
+.slidev-layout.cover p,
+.slidev-layout.cover li {
+  color: var(--ofc-ink);
+}
+
+.slidev-layout.cover .sub,
+.slidev-layout.cover .note {
+  opacity: 0.8;
+}
+
+.slidev-layout.cover .todo-asset,
+.slidev-layout.cover .todo-asset p {
+  color: var(--ofc-accent-deep);
+}
+
+/* Diagram slides: title stays at the top, the diagram owns the rest of the slide
+   instead of stranding a third of it empty. 88%, not 100%: the block starts below
+   the title, so the remainder has to cover a title of either one or two lines. */
+.diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  height: 88%;
+  width: 100%;
+}
+
+/* Mermaid renders into a SHADOW ROOT, so nothing in this file can reach the <svg>
+   — a `.diagram svg { width: 100% }` rule here matches nothing, and the diagram
+   keeps Mermaid's own inline `max-width: <natural width>px`.
+
+   That leaves two levers. `text-align` inherits through the shadow boundary, so it
+   is what centres the diagram in the column. Size comes from `fontSize` in
+   setup/mermaid.ts, which grows the whole graph proportionally — not from a CSS
+   transform, which ignores the layout box and ran off both slide edges in the PDF
+   export. */
+.diagram .mermaid {
+  width: 100%;
+  text-align: center;
+}
+
+.lede {
+  font-size: 1.5rem;
+  max-width: 34ch;
+}
+
+.note {
+  font-size: 0.95rem;
+}
+
+/* Markdown wraps the contents of every .note and .sub in a <p>, and the element
+   selectors above (`.slidev-layout p`) set colour and line-height directly on that
+   <p> — which outranks anything inherited from the wrapper. So the muted tier has
+   to name the children, or it silently does not exist.
+
+   Excluded on the cover, which sets its own paper colour over the dark panel. */
+.slidev-layout:not(.cover) :is(.note, .sub),
+.slidev-layout:not(.cover) :is(.note, .sub) :is(p, li) {
+  color: var(--ofc-sub);
+}
+
+/* Same trap, line-height rather than colour. */
+.slidev-layout .lede,
+.slidev-layout .lede p {
+  line-height: 1.45;
+}
+
+/* Asset placeholders. Deliberately loud so a missing screenshot cannot survive a rehearsal. */
+.todo-asset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 15rem;
+  padding: 1.5rem;
+  border: 2px dashed var(--ofc-accent);
+  border-radius: 0.5rem;
+  background: var(--ofc-accent-soft);
+  color: var(--ofc-accent-deep);
+  font-size: 0.95rem;
+}
+
+/* Raised panel under the compare table: opaque, so the rows read against a calm
+   ground instead of the city-block texture showing through between hairlines. */
+.table-card {
+  margin-top: 1.5rem;
+  background: #223618;
+  border: 1px solid var(--ofc-line);
+  border-radius: 12px;
+  padding: 0.5rem 1.75rem 1rem;
+}
+
+/* Appendix comparison table (Q&A jump target). 1.1rem matches body prose: at
+   0.72rem it was 1.6% of slide height — under the projector floor — while half
+   the slide sat empty below it. Measured ceiling is 1.2rem before rows wrap. */
+.slidev-layout table {
+  font-size: 1.1rem;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.slidev-layout th,
+.slidev-layout td {
+  border-bottom: 1px solid var(--ofc-line);
+  padding: 0.3rem 0.5rem;
+  text-align: left;
+}
+
+.slidev-layout thead th {
+  color: var(--ofc-muted);
+  font-weight: 500;
+}
+
+.slidev-layout tbody tr:last-child {
+  background: var(--ofc-accent-soft);
+}
+
+.slidev-layout code {
+  color: var(--ofc-accent-deep);
+  background: var(--ofc-accent-soft);
+}
+
+/* Caption for <Shot> figure slides: a muted line under the frame, aligned to its
+   left edge — editorial, not an overlay. Lives here, not in a slides.md <style>
+   block (a trailing <style> scopes to the last slide only — deck-review gotcha).
+   The shared view-transition-name keeps the caption still while the screenshot
+   morphs above it. Geometry mirrors .shot in components/Shot.vue: frame bottom is
+   80px, rail band is 40px, the caption owns the strip between. */
+.cap {
+  position: absolute;
+  bottom: 62px;
+  left: 200px;
+  right: 200px;
+  z-index: 1;
+  color: var(--ofc-muted);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-align: center;
+  view-transition-name: cap;
+}
+
+/* Presenter notes are cue cards, not prose: four labelled lines meant to be taken in
+   at a glance. At the default size a card wraps past the pane and scrolls, which
+   defeats the point — you cannot scan what you have to scroll for, and the line that
+   falls off the bottom is GUARD, the one carrying what must not be said.
+   Only reaches /presenter and /notes; the audience never sees this. */
+.slidev-note {
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.slidev-note ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.slidev-note li {
+  margin: 0.3rem 0;
+}
+
+/* The label is the scan target, so keep it dark against the body text — the eye should
+   land on BEAT / CUES / BRIDGE / GUARD rather than read the card top to bottom. */
+.slidev-note li strong {
+  color: #171717; /* literal: the presenter pane is light and does not use deck tokens */
+}
+
+/* Caption under a Shot frame: one line in the 110px bottom band, centered on the
+   frame (not the canvas). The screenshot is the slide; this is its label. */
+.shot-cap {
+  position: absolute;
+  left: 200px;
+  right: 200px;
+  bottom: 62px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--ofc-sub);
+}
+
+/* Two archival images side by side under a heading. Each keeps its own aspect;
+   the row height leaves room for h1 + lede above and the caption band below. */
+.img-pair {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  height: 460px;
+  margin-top: 1rem;
+}
+
+.img-pair img {
+  max-height: 100%;
+  min-width: 0;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--ofc-line);
+  border-radius: 8px;
+}
+
+/* Captures and plates sit on the dark olive ground; a soft drop shadow lifts them
+   off it. One shared value so every lifted element reads as the same material. */
+.img-pair img,
+.query-card,
+.query,
+.cover-qr img {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Placeholder tag for slides awaiting a capture or diagram. Small on purpose:
+   the slide must stay presentable as-is if the asset never lands. Deleted as
+   assets arrive. */
+.todo-pill {
+  position: absolute;
+  top: 3rem;
+  right: 3.5rem;
+  padding: 0.3rem 0.8rem;
+  border: 1.5px dashed var(--ofc-accent);
+  border-radius: 999px;
+  color: var(--ofc-accent-deep);
+  background: var(--ofc-accent-soft);
+  font-size: 0.75rem;
+}
