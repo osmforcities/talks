@@ -495,18 +495,12 @@
   width: 100%;
 }
 
-/* Mermaid renders into a SHADOW ROOT, so nothing in this file can reach the <svg>
-   — a `.diagram svg { width: 100% }` rule here matches nothing, and the diagram
-   keeps Mermaid's own inline `max-width: <natural width>px`.
-
-   That leaves two levers. `text-align` inherits through the shadow boundary, so it
-   is what centres the diagram in the column. Size comes from `fontSize` in
-   setup/mermaid.ts, which grows the whole graph proportionally — not from a CSS
-   transform, which ignores the layout box and ran off both slide edges in the PDF
-   export. */
-.diagram .mermaid {
+/* Hand-drawn Excalidraw export, transparent background, light strokes — sits
+   directly on the dark ground, so no plate/shadow treatment. Full column width;
+   the title/lede live in the drawing's empty bottom-left corner. */
+.diagram-svg {
   width: 100%;
-  text-align: center;
+  height: auto;
 }
 
 .lede {

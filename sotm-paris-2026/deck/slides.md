@@ -49,8 +49,8 @@ mdc: true
 </div>
 
 <!--
-- **BEAT**: Hi, I'm Vitor. This is OSM for Cities: a prototype, not a product.
-- **CUES**: name · OSM for Cities · a few years now · motivation first, features after
+- **BEAT**: Hi, I'm Vitor. This is OSM for Cities: a platform to visualize and track city-level data. An experimental project I've worked on for a few years, now in a refreshed version — still a prototype, and I'm presenting its state for OSM community feedback.
+- **CUES**: name · visualize + track city data · experimental, a few years, refreshed · prototype, here for feedback
 - **BRIDGE**: "It starts with a job I had in 2003..."
 - **GUARD**: Say "prototype" out loud. Everything lands easier once expectations are set.
 -->
@@ -71,7 +71,7 @@ section: Stories of data waste
 - **BEAT**: In 2003 I surveyed these roads by hand. The data died in a report.
 - **CUES**: intern, transport consultancy · ring road, trucks off city streets · car + driver, avenue by avenue
 - **BRIDGE**: "Seven years later, same problem, different city..."
-- **GUARD**: Not the payoff yet. Slow down.
+- **GUARD**: Just set the scene — the payoff comes on the OSM slide. Tell it calmly.
 -->
 
 ---
@@ -85,7 +85,7 @@ section: Stories of data waste
 </div>
 
 <!--
-- **BEAT**: 2010, Mexico City: the stops existed only in the peseros' heads. We mapped them; the data stayed in the project.
+- **BEAT**: 2010, Mexico City: the stops existed nowhere but in the drivers' memory. We mapped them; the data stayed in the project.
 - **CUES**: another consultancy · south of the city · informal transport, peseros · field teams again
 - **BRIDGE**: "At that time, I was already aware of OpenStreetMap..."
 - **GUARD**: Say "at least at the time". Do not claim Mexico City is still like this.
@@ -123,8 +123,8 @@ section: Browsing city data
 <!--
 - **BEAT**: The ecosystem is rich now. But quickly reaching a dataset still takes technical knowledge: preprocessing, and filtering to your own area.
 - **CUES**: name them: HOT Export Tool, Overpass Turbo, ohsome, uMap, MapComplete · preprocessing · your own area
-- **BRIDGE**: "Here is how I understand the landscape today..."
-- **GUARD**: Praise the tools before naming the gap — their authors are part of this community.
+- **BRIDGE**: "I made a non-exhaustive table of the existing tools..."
+- **GUARD**: Compliment the tools first — the gap is about audience, not quality.
 -->
 
 ---
@@ -150,7 +150,7 @@ section: Browsing city data
 - **BEAT**: The closest tool is HOT Export Tool. This is not a replacement. It is a complement.
 - **CUES**: recurring question · unit of work, audience, ongoing, insight · "not an expert in the others" · ohsome API 2.0 launches at this SotM
 - **BRIDGE**: "I felt that city officials, urban planners, local communities still go through many steps..."
-- **GUARD**: Say it: I may have missed things, and I do not know them all deeply. Be generous about every project on this table.
+- **GUARD**: Thank the other tools. Say it: I may have missed things and do not know them all deeply.
 -->
 
 ---
@@ -193,25 +193,37 @@ section: Building a stack
 
 ---
 
-# The v1 stack
-
-<div class="lede">A Next.js app, a Postgres database, and dedicated Overpass instances to keep things simpler from v0.</div>
-
 <div class="diagram">
+  <img class="diagram-svg" src="/v1-data-flow.svg" alt="OSM data flows via minutely diffs into Overpass, daily updates into PostgreSQL, then to the user's browser and email inbox" />
+</div>
 
-```mermaid
-flowchart LR
-  B[Browser] --> A[Web app]
-  A <--> P[(Postgres)]
-  A --> O[Dedicated Overpass]
-  OSM[OpenStreetMap] --> O
-```
+<div class="corner-copy">
+
+# The refreshed workflow
+
+<div class="lede">Existing tools do the heavy lifting: OSM data flows through Overpass and Postgres to the browser.</div>
 
 </div>
 
+<style>
+/* The drawing is heavy top-right and empty bottom-left; title and copy sit in
+   that empty corner, aligned to the layout padding. */
+.corner-copy {
+  position: absolute;
+  left: 3.5rem;
+  bottom: 4.5rem;
+}
+.corner-copy .lede {
+  margin-top: 1rem;
+}
+.diagram {
+  height: 100%;
+}
+</style>
+
 <!--
-- **BEAT**: The v1 stack: a Next.js app, a Postgres database, and dedicated Overpass instances. Dedicated because the public ones are busy, and this keeps it simpler.
-- **CUES**: Next.js app · Postgres · dedicated Overpass instance, public ones are busy
+- **BEAT**: The refreshed workflow: OSM replicates minutely into a dedicated Overpass instance. One cron job updates the existing datasets in Postgres; another emails users a report when their datasets change. The web app displays it all in the browser.
+- **CUES**: minutely replication · dedicated Overpass, public ones are busy · dataset-update cron · email-report cron · both read/write Postgres
 - **BRIDGE**: "And the data flows in a lazy way..."
 - **GUARD**: Keep it generic. No architecture deep dive; the room does not need it.
 -->
@@ -290,7 +302,7 @@ title: Tags
 <!--
 - **BEAT**: The tags panel is an insight into completeness: critical coverage, accessibility, most-used.
 - **CUES**: wiki-recommended: operator, opening hours · accessibility as transversal coverage · most-used, local patterns
-- **BRIDGE**: "Still in the panel, for regular users there is the save option..."
+- **BRIDGE**: "Beyond reading the panel, there are a few actions the user can take..."
 - **GUARD**: Ground it in one concrete example: a building carrying wheelchair information.
 -->
 
@@ -456,46 +468,29 @@ out geom meta;</pre>
 </style>
 
 <!--
-- **BEAT**: No magic behind a card: every template is one line of YAML — the wiki tag it filters — compiled into one Overpass query, with your city's relation id swapped in. Asking for nodes, ways AND relations is a feature, not a bug: it surfaces the dataset's geometry mix, even where something is mapped wrong.
-- **CUES**: one YAML line, 200+ of them · highway=bus_stop carries through · rel 71525 = Paris · same query, any city · all three element types on purpose → geometry mix, mismapping included · Overpass does the heavy lifting
-- **BRIDGE**: "That is everything on slides — so instead of more of them, let's use it..."
+- **BEAT**: Every template is one line of YAML, compiled into one Overpass query — only the city's relation id changes.
+- **CUES**: one YAML line · rel 71525 = Paris · same query, any city · node+way+relation on purpose: shows the geometry mix
+- **BRIDGE**: "That is everything on slides — now let me show it moving..."
 - **GUARD**: Honest line: you cannot copy this out of the interface yet — it is one of the roadmap candidates the closing ask points at.
 -->
 
 ---
-section: Live demo
+section: Demo
 ---
 
 <div class="statement centered">
 
 # Live demo
 
-<div class="sub">Any suggested city?</div>
+<div class="sub">See the recorded demo here</div>
 
 </div>
 
 <!--
-- **BEAT**: Someone name a city. Switch to the browser: osmforcities.org, search it, create bus stops, open the panel — live, against production.
-- **CUES**: room picks the city · up the sleeve if the room is quiet: Berlin (7.3s), New York (8.3s), São Paulo (11.5s) · signed in already · search → create → panel
+- **BEAT**: A recorded tour, narrated live: open osmforcities.org unsigned → the featured maps on the home page → the explore page and what it lists → search a city → bus stops → the same features we just saw, this time moving.
+- **CUES**: unsigned, anonymous browser · featured maps · explore page · search the city · bus stops · quick pass over the panel features
 - **BRIDGE**: "So that is the platform working. Which brings me to the invitation..."
-- **GUARD**: Say the gate out loud while it builds: "I am signed in — if you try this later it will ask for an email, and that is why: each new city is a real query." While it builds, the wait-fillers: four languages, French added for this talk (ask the room to flag anything off); email reports, daily or weekly. City already exists? Fine — say so, it returns fast. Overpass stalls? Advance: the next slide is the recording.
--->
-
----
-
-<div class="statement">
-
-# The same path, recorded
-
-<div class="sub">search → create → panel, captured earlier against production.</div>
-
-</div>
-
-<!--
-- **BEAT**: Only reached if the live demo stalls. Narrate over the recording — same path, same city type.
-- **CUES**: same path: search → create → panel · keep the pace
-- **BRIDGE**: same as the live slide — into the invitation.
-- **GUARD**: One sentence acknowledging the stall, maximum. The recording is the demo, not a consolation. If the live demo worked, skip past this slide without comment.
+- **GUARD**: Repetition with the screenshot tour is fine — this time it is the real thing moving, and quickly. Mention the email gate in passing: creating datasets asks for an email because updates need somewhere to go.
 -->
 
 ---
