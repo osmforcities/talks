@@ -480,9 +480,7 @@ section: Demo
 
 <div class="statement centered">
 
-# Live demo
-
-<div class="sub">See the recorded demo here</div>
+# Demo
 
 </div>
 
