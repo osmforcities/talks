@@ -232,17 +232,17 @@ section: Building a stack
 
 <div class="statement">
 
-# Datasets are updated daily
+# Only followed datasets stay fresh
 
-<div class="sub">A workflow queries datasets of interest every day from Overpass.</div>
+<div class="sub">Updating the whole planet is unfeasible — attention decides what gets queried.</div>
 
 </div>
 
 <!--
-- **BEAT**: When someone opens a dataset page, it is fetched. From there they can follow it, and datasets of interest get updated every day from Overpass, behind the scenes.
-- **CUES**: open a page, it fetches · follow it · daily updates from Overpass, behind the scenes
+- **BEAT**: The lazy part: opening a dataset page fetches it once. Following it is what keeps it fresh — attention decides what gets queried, because monitoring the whole planet is unfeasible.
+- **CUES**: open a page, it fetches once · follow = daily refresh · attention decides · whole planet unfeasible
 - **BRIDGE**: "And these datasets can be observed in a panel..."
-- **GUARD**: Say why only followed datasets are queried: monitoring the whole planet is unfeasible. One breath, then show the screens.
+- **GUARD**: This answers the room's silent question — "you query all of OSM daily?!". Land it, one breath, then the screens.
 -->
 
 ---
@@ -508,8 +508,7 @@ section: Community feedback
 
 <div class="ramp" />
 
-<div class="cover-tagline">Use cases, bugs, questions — all welcome,
-especially if you work close to a city.</div>
+<div class="cover-tagline">Use cases, bugs, questions — all welcome.</div>
 
 </div>
 
