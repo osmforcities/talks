@@ -13,6 +13,12 @@
  * editing four numbers, and so nothing has to be recomputed by hand when the
  * screenshot is retaken at a different size.
  */
+// Markdown <img> tags get their src rewritten for the deploy base
+// (--base /talks/sotm-paris-2026/), but a component prop is a runtime string
+// Slidev never touches — without this, every Shot 404s on the published site.
+const resolveBase = (src: string) =>
+  src.startsWith("/") ? import.meta.env.BASE_URL.replace(/\/$/, "") + src : src
+
 const props = withDefaults(
   defineProps<{
     src: string
@@ -62,7 +68,7 @@ const style = () => {
 
 <template>
   <div class="shot">
-    <img :src="src" :style="style()" alt="" />
+    <img :src="resolveBase(src)" :style="style()" alt="" />
   </div>
 </template>
 
