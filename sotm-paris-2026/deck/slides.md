@@ -232,9 +232,9 @@ section: Building a stack
 
 <div class="statement">
 
-# Only followed datasets stay fresh
+# Lazy by default
 
-<div class="sub">Updating the whole planet is unfeasible — attention decides what gets queried.</div>
+<div class="sub">Only datasets that people follow are updated daily.</div>
 
 </div>
 
