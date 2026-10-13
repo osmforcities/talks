@@ -1,0 +1,19 @@
+{
+  "name": "sotm-latam-2026-deck",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build --without-notes",
+    "export": "slidev export --per-slide --output osm-for-cities-sotm-latam-2026.pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.19.0",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.56.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@iconify-json/simple-icons": "^1.2.93"
+  }
+}
