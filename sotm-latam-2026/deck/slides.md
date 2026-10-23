@@ -52,7 +52,7 @@ mdc: true
 - **BEAT**: Hola, soy Vitor. Esto es OSM for Cities: una plataforma para visualizar y monitorear datos a nivel de ciudad. Un proyecto experimental en el que trabajo desde hace algunos años, ahora en una versión renovada. Sigue siendo un prototipo, y presento su estado para recibir retroalimentación de la comunidad OSM.
 - **CUES**: nombre · visualizar + monitorear datos de ciudad · experimental, algunos años, renovado · prototipo, aquí para retroalimentación
 - **BRIDGE**: "Todo empieza con un trabajo que tuve en 2003..."
-- **GUARD**: Decir "prototipo" en voz alta. Todo cae mejor cuando las expectativas están claras.
+- **GUARD**: Decir "prototipo" en voz alta. Todo se recibe mejor cuando las expectativas están claras.
 -->
 
 ---
@@ -68,7 +68,7 @@ section: Historias de datos desperdiciados
 </div>
 
 <!--
-- **BEAT**: En 2003 levanté estas vías a mano. Los datos murieron en un informe.
+- **BEAT**: En 2003 levanté estas vías a mano. Los datos quedaron enterrados en un informe.
 - **CUES**: practicante, consultora de transporte · anillo vial, camiones fuera de la ciudad · auto + chofer, avenida por avenida
 - **BRIDGE**: "Siete años después, el mismo problema, otra ciudad..."
 - **GUARD**: Solo plantear la escena; el remate viene en la diapositiva de OSM. Contarlo con calma.
@@ -85,14 +85,14 @@ section: Historias de datos desperdiciados
 </div>
 
 <!--
-- **BEAT**: 2010, Ciudad de México: las paradas no existían en ningún lado, solo en la memoria de los choferes. Las mapeamos; los datos se quedaron en el proyecto.
-- **CUES**: otra consultora · sur de la ciudad · transporte informal, peseros · equipos de campo otra vez
+- **BEAT**: 2010, aquí en la Ciudad de México: las paradas no existían en ningún lado, solo en la memoria de los choferes. Las mapeamos; los datos se quedaron en el proyecto.
+- **CUES**: otra consultora · sur de la ciudad · transporte informal, peseros · equipos de campo otra vez · esta sala conoce esta historia mejor que yo: decirlo
 - **BRIDGE**: "En esa época yo ya conocía OpenStreetMap..."
 - **GUARD**: Decir "al menos en esa época". No afirmar que la Ciudad de México sigue así.
 -->
 
 ---
-section: Explorar datos de ciudad
+section: Explorar datos urbanos
 ---
 
 <div class="statement anchor-low">
@@ -104,7 +104,7 @@ section: Explorar datos de ciudad
 </div>
 
 <!--
-- **BEAT**: Tercera tarjeta: OSM hoy. En aquel entonces era joven, y parecía lo indicado para ciudades que no pueden mantener un equipo SIG. Ahora es maduro. Pero, ¿una persona no técnica puede encontrar los datos de su ciudad?
+- **BEAT**: Tercera tarjeta: OSM hoy. En aquel entonces era joven, y parecía lo indicado para ciudades que no pueden mantener un equipo SIG. Ahora es maduro. Pero ¿una persona no técnica puede encontrar los datos de su ciudad?
 - **CUES**: primeros años, América Latina · sin equipo SIG permanente · maduro ahora · la pregunta, en voz alta
 - **BRIDGE**: "El ecosistema alrededor de OSM hoy es muy rico..."
 - **GUARD**: Dejar la pregunta en el aire. No responderla todavía.
@@ -129,19 +129,19 @@ section: Explorar datos de ciudad
 
 ---
 
-# Cómo se compara
+# Comparación con otras herramientas
 
 <div class="table-card">
 
 | Herramienta | Público | Actualización | Análisis integrado |
 | --- | --- | --- | --- |
-| HOT Export Tool | SIG, humanitario | Exportación a demanda | No |
+| HOT Export Tool | Equipos SIG y humanitarios | Exportación bajo demanda | No |
 | Overpass Turbo / QuickOSM | Usuarios avanzados | Consulta en vivo | No |
-| ohsome | Investigadores | Indicadores en el tiempo | Sí |
-| Geofabrik / BBBike | Desarrolladores | Archivos diarios | No |
+| ohsome | Investigadores | Indicadores históricos | Sí |
+| Geofabrik / BBBike | Desarrolladores | Extractos diarios | No |
 | osmnx / pyrosm | Investigadores | Consulta en vivo | No |
-| MapComplete | Contribuidores | Edición en vivo | No |
-| Overture | Comercial / IA | Versión mensual | No |
+| MapComplete | Mapeadores | Edición en vivo | No |
+| Overture | Comercial / IA | Publicación mensual | No |
 | **OSM for Cities** | **Público no técnico** | **Diaria + alertas por correo** | **Sí** |
 
 </div>
@@ -149,7 +149,7 @@ section: Explorar datos de ciudad
 <!--
 - **BEAT**: La herramienta más cercana es HOT Export Tool. Esto no la reemplaza. La complementa.
 - **CUES**: pregunta recurrente · unidad de trabajo, público, continuidad, análisis · "no soy experto en las demás"
-- **BRIDGE**: "Sentía que funcionarios, urbanistas y comunidades locales todavía pasan por muchos pasos..."
+- **BRIDGE**: "Sentía que funcionarios, urbanistas y comunidades locales todavía tenían que dar demasiados pasos..."
 - **GUARD**: Agradecer a las otras herramientas. Decirlo: puede que me falten cosas, y no las conozco todas a fondo.
 -->
 
@@ -168,10 +168,10 @@ section: Armar un stack
 </div>
 
 <!--
-- **BEAT**: Mi primer intento, la v0: un proceso diario recortaba cada ciudad brasileña del archivo planet, guardaba todo en un repositorio git, y encima había un tablero sencillo.
+- **BEAT**: Mi primer intento, la v0: un proceso diario recortaba cada ciudad brasileña del archivo planet, guardaba todo en un repositorio git, y sobre eso funcionaba un tablero sencillo.
 - **CUES**: extractos diarios, por ciudad · archivo planet · repo git, cities-of/brazil · tablero sencillo · frágil, sin camino hacia una interfaz
 - **BRIDGE**: "Me di cuenta de que podía apoyarme en herramientas que ya existen..."
-- **GUARD**: Decirlo claro: llegó a todo Brasil, todos los días. El problema era la fragilidad, no la ambición.
+- **GUARD**: Decirlo claro: llegó a cubrir todo Brasil, todos los días. El problema era la fragilidad, no la ambición.
 -->
 
 ---
@@ -180,12 +180,12 @@ section: Armar un stack
 
 # ¿Por qué no usar algo que ya existe?
 
-<div class="sub">Overpass ya consulta OSM muy bien. El esfuerzo podía ir a la usabilidad.</div>
+<div class="sub">Overpass ya resuelve muy bien las consultas a OSM. El esfuerzo podía dedicarse a la usabilidad.</div>
 
 </div>
 
 <!--
-- **BEAT**: La reescritura empezó con una pregunta: ¿por qué mantener mi propio pipeline si Overpass ya consulta OSM muy bien? Que Overpass haga las consultas, y el esfuerzo va a la usabilidad.
+- **BEAT**: La reescritura empezó con una pregunta: ¿por qué mantener mi propio pipeline si Overpass ya resuelve muy bien las consultas a OSM? Que Overpass haga las consultas y que el esfuerzo vaya a la usabilidad.
 - **CUES**: no reinventar la rueda · Overpass hace las consultas · el esfuerzo va a la usabilidad
 - **BRIDGE**: "Entonces el stack hoy es simple..."
 - **GUARD**: Reconocer a Overpass con calidez.
@@ -194,14 +194,14 @@ section: Armar un stack
 ---
 
 <div class="diagram">
-  <img class="diagram-svg" src="/v1-data-flow.svg" alt="Los datos de OSM fluyen por diffs minutales hacia Overpass, actualizaciones diarias hacia PostgreSQL, y de ahí al navegador y al correo del usuario" />
+  <img class="diagram-svg" src="/v1-data-flow.svg" alt="Los datos de OSM fluyen por diffs por minuto hacia Overpass, luego mediante actualizaciones diarias hacia PostgreSQL, y de ahí al navegador y al correo del usuario" />
 </div>
 
 <div class="corner-copy">
 
 # El flujo renovado
 
-<div class="lede">Herramientas existentes hacen el trabajo pesado: los datos de OSM pasan por Overpass y Postgres hasta el navegador.</div>
+<div class="lede">Las herramientas existentes hacen el trabajo pesado: los datos de OSM pasan por Overpass y PostgreSQL hasta el navegador.</div>
 
 </div>
 
@@ -222,8 +222,8 @@ section: Armar un stack
 </style>
 
 <!--
-- **BEAT**: El flujo renovado: OSM se replica cada minuto en una instancia dedicada de Overpass. Un cron actualiza los datasets existentes en Postgres; otro envía a los usuarios un reporte por correo cuando sus datasets cambian. La aplicación web muestra todo en el navegador.
-- **CUES**: replicación minutal · Overpass dedicado, los públicos están saturados · cron de actualización de datasets · cron de reportes por correo · ambos leen/escriben en Postgres
+- **BEAT**: El flujo renovado: OSM se replica cada minuto en una instancia dedicada de Overpass. Un cron actualiza los datasets existentes en PostgreSQL; otro envía a los usuarios un reporte por correo cuando sus datasets cambian. La aplicación web muestra todo en el navegador.
+- **CUES**: replicación por minuto · Overpass dedicado, los públicos están saturados · cron de actualización de datasets · cron de reportes por correo · ambos leen/escriben en PostgreSQL
 - **BRIDGE**: "Y los datos fluyen de forma perezosa..."
 - **GUARD**: Mantenerlo general. Nada de detalle de arquitectura; la sala no lo necesita.
 -->
@@ -239,10 +239,10 @@ section: Armar un stack
 </div>
 
 <!--
-- **BEAT**: La parte perezosa: abrir la página de un dataset lo consulta una vez. Seguirlo es lo que lo mantiene fresco. La atención decide qué se consulta, porque monitorear todo el planeta es inviable.
-- **CUES**: abrir una página, se consulta una vez · seguir = actualización diaria · la atención decide · todo el planeta, inviable
+- **BEAT**: La parte perezosa: al abrir la página de un dataset, se consulta una sola vez. Guardarlo es lo que lo mantiene actualizado. La atención decide qué se consulta, porque monitorear todo el planeta es inviable.
+- **CUES**: abrir una página, se consulta una vez · guardar = actualización diaria · la atención decide · todo el planeta, inviable
 - **BRIDGE**: "Y estos datasets se pueden observar en un panel..."
-- **GUARD**: Esto responde la pregunta silenciosa de la sala: "¿¡consultan todo OSM a diario!?". Aterrizarlo, en un respiro, y luego las pantallas.
+- **GUARD**: Esto responde la pregunta silenciosa de la sala: "¿¡consultan todo OSM a diario!?". Aterrizarlo rápido, y luego las pantallas.
 -->
 
 ---
@@ -250,28 +250,28 @@ title: El panel del dataset
 section: Un tablero de ciudad
 ---
 
-<Shot src="/captures/paris-bus-stops.jpeg" :vw="1600" :vh="1100" />
+<Shot src="/captures/cdmx-bus-stops.jpeg" :vw="1600" :vh="1100" />
 
-<div class="shot-cap">El panel del dataset: una página por dataset por ciudad.</div>
+<div class="shot-cap">El panel del dataset: una página para cada dataset en cada ciudad.</div>
 
 <!--
-- **BEAT**: De aquí en adelante todo son pantallas reales, con París como ejemplo. El panel: ciudad, dataset, categoría, última edición, última actualización. Todo en una página.
-- **CUES**: pantallas reales, París · categoría transporte · última edición · actualizado hace minutos · mapa al lado
+- **BEAT**: De aquí en adelante todo son pantallas reales, con la Ciudad de México como ejemplo: paradas de autobús. El panel: ciudad, dataset, categoría, última edición, última actualización. Todo en una página.
+- **CUES**: pantallas reales, CDMX · paradas de autobús · editado hace días · actualizado hace segundos · mapa al lado
 - **BRIDGE**: "Empezando por lo que realmente hay en los datos..."
-- **GUARD**: Esta es la página completa. Las siguientes diapositivas solo hacen zoom en ella. Decirlo, prepara el recorrido.
+- **GUARD**: Esta es la página completa. Las siguientes diapositivas solo hacen zoom en ella. Decirlo prepara el recorrido.
 -->
 
 ---
 title: Qué hay
 ---
 
-<Shot src="/captures/paris-bus-stops.jpeg" :x="24" :y="180" :w="336" :h="250" :vw="1600" :vh="1100" />
+<Shot src="/captures/cdmx-bus-stops.jpeg" :x="24" :y="180" :w="336" :h="250" :vw="1600" :vh="1100" />
 
 <div class="shot-cap">Conteos y longitudes, y qué tan reciente es la edición de cada elemento.</div>
 
 <!--
-- **BEAT**: Composición y frescura: lo que existe, en franjas según la última edición.
-- **CUES**: nodos, vías, relaciones → GeoJSON · conteos y longitudes, p. ej. una red de ciclovías · franjas: 90 días, 1 año, 2 años, más antiguo
+- **BEAT**: Composición y antigüedad: lo que existe, en franjas según la última edición.
+- **CUES**: nodos, vías, relaciones → GeoJSON · 1,861 paradas, casi todas puntos · franjas: 90 días, 1 año, 2 años, más de 2 años · 27% editado en los últimos 90 días, casi la mitad hace más de 2 años
 - **BRIDGE**: "Otro panel es el número de personas involucradas en el mapeo..."
 - **GUARD**: Las franjas son un corte arbitrario mío. Decirlo.
 -->
@@ -280,13 +280,13 @@ title: Qué hay
 title: Quién lo mapea
 ---
 
-<Shot src="/captures/paris-bus-stops.jpeg" :x="24" :y="415" :w="336" :h="162" :vw="1600" :vh="1100" />
+<Shot src="/captures/cdmx-bus-stops.jpeg" :x="24" :y="415" :w="336" :h="162" :vw="1600" :vh="1100" />
 
-<div class="shot-cap">Quién mantiene vivos estos datos, contado a partir de la última edición de cada elemento.</div>
+<div class="shot-cap">Quién mantiene vivos estos datos, según la última edición de cada elemento.</div>
 
 <!--
 - **BEAT**: Número de mapeadores, derivado de la última edición de cada elemento, con las mismas franjas de antigüedad.
-- **CUES**: número absoluto · solo la última edición, sin historial completo · mismas franjas, aplicadas a personas
+- **CUES**: 132 mapeadores · solo la última edición, sin historial completo · mismas franjas, aplicadas a personas · 14 activos en los últimos 90 días
 - **BRIDGE**: "Por último, está el panel de etiquetas..."
 - **GUARD**: Sin historial completo, los editores anteriores no aparecen. Decirlo. Anticipa lo que costó la reescritura.
 -->
@@ -295,28 +295,28 @@ title: Quién lo mapea
 title: Etiquetas
 ---
 
-<Shot src="/captures/paris-bus-stops.jpeg" :x="24" :y="562" :w="336" :h="400" :vw="1600" :vh="1100" />
+<Shot src="/captures/cdmx-bus-stops.jpeg" :x="24" :y="562" :w="336" :h="400" :vw="1600" :vh="1100" />
 
 <div class="shot-cap">Etiquetas: cobertura crítica, accesibilidad, las más usadas.</div>
 
 <!--
 - **BEAT**: El panel de etiquetas da una idea de la completitud: cobertura crítica, accesibilidad, las más usadas.
-- **CUES**: recomendadas por la wiki: operator, opening_hours · accesibilidad como cobertura transversal · las más usadas, patrones locales
+- **CUES**: recomendadas por la wiki · operador 65%, marquesina 34% · silla de ruedas 2% · las más usadas, patrones locales: network 70%
 - **BRIDGE**: "Además de leer el panel, hay algunas acciones que se pueden hacer..."
-- **GUARD**: Aterrizarlo en un ejemplo concreto: un edificio con información de acceso en silla de ruedas.
+- **GUARD**: "Cobertura crítica" es el texto de la interfaz; decirlo como "las etiquetas clave". Aterrizarlo en un ejemplo concreto: una parada con información de acceso en silla de ruedas.
 -->
 
 ---
 title: Guardar, descargar, compartir
 ---
 
-<Shot src="/captures/paris-bus-stops.jpeg" :x="8" :y="990" :w="368" :h="110" :vw="1600" :vh="1100" />
+<Shot src="/captures/cdmx-bus-stops.jpeg" :x="8" :y="990" :w="368" :h="110" :vw="1600" :vh="1100" />
 
 <div class="shot-cap">Guardar para seguirlo, descargar el GeoJSON o compartir la URL.</div>
 
 <!--
-- **BEAT**: Guardar para monitorear, y las ediciones llegan por correo. Descargar GeoJSON, compartir por URL. Los administradores pueden destacar un dataset o forzar una actualización.
-- **CUES**: guardar = monitoreado, correo diario o semanal · descarga GeoJSON · compartir URL · admin: destacar, forzar actualización
+- **BEAT**: Guardarlo para seguirlo, y las ediciones llegan por correo. Descargar GeoJSON, compartir por URL. Los administradores pueden destacar un dataset o forzar una actualización.
+- **CUES**: guardar = seguido, correo diario o semanal · descarga GeoJSON · compartir URL · admin: destacar, forzar actualización
 - **BRIDGE**: "Sobre el mapa: al inicio muestra las ediciones recientes..."
 - **GUARD**: Diapositiva rápida. No detenerse.
 -->
@@ -325,77 +325,77 @@ title: Guardar, descargar, compartir
 title: El mapa, vivo y filtrable
 ---
 
-<Shot src="/captures/paris-bus-recency.jpeg" :vw="1316" :vh="824" />
+<Shot src="/captures/cdmx-bus-recency.jpeg" :vw="1216" :vh="759" />
 
-<div class="shot-cap">El mapa, coloreado por antigüedad de las ediciones: la vista por defecto.</div>
+<div class="shot-cap">El mapa, coloreado según la antigüedad de las ediciones: la vista por defecto.</div>
 
 <!--
-- **BEAT**: El mapa abre coloreado por antigüedad de las ediciones, por defecto: qué tan vivos están los datos. Luego se puede colorear por las etiquetas de cobertura crítica.
-- **CUES**: antigüedad es la vista por defecto · qué tan vivos están los datos · luego colorear por etiquetas de cobertura
+- **BEAT**: El mapa abre coloreado según la antigüedad de las ediciones, por defecto: qué tan vivos están los datos. Luego se puede colorear según las etiquetas clave.
+- **CUES**: antigüedad es la vista por defecto · 317 paradas editadas en la última semana · se nota dónde alguien mapeó hace poco: las rutas del poniente
 - **BRIDGE**: "Por ejemplo, accesibilidad en silla de ruedas en paradas de autobús..."
 - **GUARD**: "Vivo" es la palabra que hay que aterrizar: el mapa es el pulso, no decoración.
 -->
 
 ---
-title: Paradas por acceso en silla de ruedas
+title: Paradas según acceso en silla de ruedas
 ---
 
-<Shot src="/captures/paris-bus-wheelchair.jpeg" :vw="1316" :vh="824" />
+<Shot src="/captures/cdmx-bus-wheelchair.jpeg" :vw="1216" :vh="759" />
 
-<div class="shot-cap">Paradas de autobús por acceso en silla de ruedas: accesibilidad, parada por parada.</div>
+<div class="shot-cap">Paradas de autobús según acceso en silla de ruedas: casi ninguna tiene el dato.</div>
 
 <!--
-- **BEAT**: El mismo mapa, coloreado por acceso en silla de ruedas: qué paradas son accesibles, cuáles no, y dónde nadie lo ha verificado todavía.
-- **CUES**: sí 1,005 · no 1,171 · sin dato 584 · accesibilidad como cobertura transversal
+- **BEAT**: El mismo mapa, coloreado según acceso en silla de ruedas. Casi todo es gris: de 1,861 paradas, solo unas 40 tienen el dato.
+- **CUES**: sí 34 · no 5 · limitado 2 · sin dato 1,830 · cobertura 2% · en París era 79%
 - **BRIDGE**: "Otro ejemplo, en un dataset de líneas..."
-- **GUARD**: Una lectura concreta, y seguir: una persona en silla de ruedas puede ver qué paradas le sirven.
+- **GUARD**: Presentarlo como invitación a mapear, nunca como falla de los mapeadores. El gris es un mapa de trabajo pendiente: una tarde de mapatón lo cambia.
 -->
 
 ---
-title: Ciclovías por regularidad
+title: Ciclovías según regularidad
 ---
 
-<Shot src="/captures/paris-cycleways-smoothness.jpeg" :vw="1316" :vh="824" />
+<Shot src="/captures/cdmx-cycleways-smoothness.jpeg" :vw="1216" :vh="759" />
 
-<div class="shot-cap">Ciclovías por regularidad de la superficie: la mayoría de los tramos todavía no tiene valor.</div>
+<div class="shot-cap">Ciclovías según la regularidad de la superficie: 9 de cada 10 tramos no tienen el dato.</div>
 
 <!--
-- **BEAT**: Ciclovías coloreadas por regularidad de la superficie. La mayoría de los tramos todavía no tiene la etiqueta smoothness, y el mapa muestra ese faltante de un vistazo.
-- **CUES**: líneas, no puntos · cobertura de smoothness 35% · faltan 3,511 de 5.4 mil · un mapa de lo que falta mapear
+- **BEAT**: Ciclovías coloreadas según la regularidad de la superficie. Casi ningún tramo tiene la etiqueta smoothness, y el mapa lo muestra de un vistazo.
+- **CUES**: líneas, no puntos · 542 tramos, 82 km · smoothness 10% · 489 de 542 sin dato · un mapa de lo que falta mapear
 - **BRIDGE**: "Entonces, ¿qué más se puede consultar?..."
-- **GUARD**: Presentar los datos faltantes como una invitación a mapear, nunca como una falla de los mapeadores.
+- **GUARD**: La plantilla cuenta solo highway=cycleway. Muchas ciclovías de la ciudad están mapeadas como carril sobre la calle (cycleway=lane), así que no decir que la CDMX tiene solo 82 km de ciclovías.
 -->
 
 ---
-section: Alrededor de la plataforma
+section: Más sobre la plataforma
 ---
 
 <div class="statement">
 
 # ¿Qué más se puede consultar?
 
-<div class="sub">Más de 200 plantillas, basadas en la wiki de OSM.</div>
+<div class="sub">Más de 200 plantillas basadas en la wiki de OSM.</div>
 
 </div>
 
 <!--
-- **BEAT**: Paradas de autobús y ciclovías fueron dos ejemplos. Más de 200 plantillas basadas en la wiki funcionan igual, organizadas por categoría, evolucionando con la forma en que la comunidad mapea.
+- **BEAT**: Paradas de autobús y ciclovías fueron dos ejemplos. Más de 200 plantillas basadas en la wiki funcionan igual, organizadas por categoría, y evolucionan a la par de cómo mapea la comunidad.
 - **CUES**: dos ejemplos hasta ahora · escuelas, hospitales, semáforos · sigue la wiki · el esquema sigue evolucionando
-- **BRIDGE**: "De vuelta en la página de París, filtrando por categoría..."
-- **GUARD**: Advertirlo en voz alta: que una plantilla esté listada no significa que la ciudad tenga esos datos: refugios de montaña en ciudades del desierto.
+- **BRIDGE**: "De vuelta en la página de la Ciudad de México, filtrando por categoría..."
+- **GUARD**: Advertirlo en voz alta: que una plantilla esté listada no significa que la ciudad tenga esos datos, por ejemplo refugios de montaña en ciudades del desierto.
 -->
 
 ---
-title: La categoría transporte
+title: La categoría de transporte
 ---
 
-<Shot src="/captures/paris-area-transport.jpeg" :vw="1600" :vh="1000" />
+<Shot src="/captures/cdmx-area-transport.jpeg" :vw="1600" :vh="1000" />
 
-<div class="shot-cap">La página del área de París, filtrada por la categoría transporte: 25 datasets.</div>
+<div class="shot-cap">La página de la Ciudad de México, filtrada por la categoría de transporte: 26 datasets.</div>
 
 <!--
-- **BEAT**: La página del área de París, filtrada por transporte: 25 datasets, desde estacionamientos de bicicletas hasta túneles, cada uno con su propia página como las que acabamos de ver.
-- **CUES**: 22 categorías en la barra lateral · solo transporte: 25 datasets · etiquetas visibles en cada tarjeta
+- **BEAT**: La página de la Ciudad de México, filtrada por transporte: 26 datasets, desde accesos de metro hasta corredores de autobús, cada uno con su propia página como las que acabamos de ver.
+- **CUES**: 22 categorías en la barra lateral · solo transporte: 26 datasets · etiquetas visibles en cada tarjeta
 - **BRIDGE**: "Y detrás de cada una de estas tarjetas no hay más que esto..."
 - **GUARD**: No leer la cuadrícula en voz alta. Señalar dos o tres tarjetas y seguir.
 -->
@@ -404,18 +404,18 @@ title: La categoría transporte
 
 # Una plantilla es una consulta de Overpass
 
-<div class="lede">Definida en una línea de YAML, resuelta por ciudad: el id del área es lo único que cambia.</div>
+<div class="lede">Definida en una línea de YAML y aplicada a cada ciudad: el ID del área es lo único que cambia.</div>
 
-<pre class="query query-yml">- ["bus-stops", "<span class="query-hl">highway=bus_stop</span>", "transport", "Bus"]</pre>
+<pre class="query query-yml">- ["bus-stops", "<span class="query-hl">highway=bus_stop</span>", "transport", "Bus", "public-transit"]</pre>
 
 <div class="query-pair">
 
-<img class="query-card" src="/captures/paris-bus-stops-card.jpeg" alt="La tarjeta Bus Stops en la página del área de París" />
+<img class="query-card" src="/captures/cdmx-bus-stops-card.jpeg" alt="La tarjeta «Paradas de autobús» en la página de la Ciudad de México" />
 
 <span class="query-eq">=</span>
 
 <pre class="query">[out:json][timeout:25];
-rel(<span class="query-hl">71525</span>);
+rel(<span class="query-hl">17483459</span>);
 map_to_area -> .searchArea;
 (
   node[<span class="query-hl">"highway"="bus_stop"</span>](area.searchArea);
@@ -468,10 +468,10 @@ out geom meta;</pre>
 </style>
 
 <!--
-- **BEAT**: Cada plantilla es una línea de YAML, compilada en una consulta de Overpass. Solo cambia el id de la relación de la ciudad.
-- **CUES**: una línea de YAML · rel 71525 = París · la misma consulta, cualquier ciudad · node+way+relation a propósito: muestra la mezcla de geometrías
+- **BEAT**: Cada plantilla es una línea de YAML, compilada en una consulta de Overpass. Solo cambia el ID de la relación de la ciudad.
+- **CUES**: una línea de YAML · rel 17483459 = Ciudad de México · la misma consulta, cualquier ciudad · node+way+relation a propósito: muestra la mezcla de geometrías
 - **BRIDGE**: "Eso es todo en diapositivas; ahora veámoslo en movimiento..."
-- **GUARD**: Línea honesta: todavía no se puede copiar esto desde la interfaz. Es uno de los candidatos del roadmap a los que apunta el cierre.
+- **GUARD**: Ser honesto: todavía no se puede copiar esta consulta desde la interfaz. Es una de las ideas pendientes del proyecto.
 -->
 
 ---
@@ -485,8 +485,8 @@ section: Demo
 </div>
 
 <!--
-- **BEAT**: Un recorrido grabado, narrado en vivo: abrir osmforcities.org sin sesión → los mapas destacados en la portada → la página de explorar y lo que lista → buscar una ciudad → paradas de autobús → las mismas funciones que acabamos de ver, esta vez en movimiento.
-- **CUES**: sin sesión, navegador anónimo · mapas destacados · página de explorar · buscar la ciudad · paradas de autobús · pasada rápida por las funciones del panel
+- **BEAT**: Un recorrido grabado, narrado en vivo: abrir osmforcities.org sin iniciar sesión → los mapas destacados en la portada → la página Explorar y lo que lista → buscar Ciudad de México → paradas de autobús → las mismas funciones que acabamos de ver, esta vez en movimiento.
+- **CUES**: sin iniciar sesión, navegador anónimo · mapas destacados · página Explorar · buscar la ciudad · paradas de autobús · pasada rápida por las funciones del panel
 - **BRIDGE**: "Así funciona la plataforma. Lo que me lleva a la invitación..."
 - **GUARD**: Repetir el recorrido de capturas está bien: esta vez es lo real en movimiento, y rápido. Mencionar de paso el registro por correo: crear datasets pide un correo porque las actualizaciones necesitan a dónde llegar.
 -->
@@ -532,5 +532,5 @@ section: Retroalimentación de la comunidad
 - **BEAT**: La invitación, y luego el agradecimiento: pruébenlo, envíen retroalimentación, sobre todo quienes trabajan en planificación urbana local o equipamientos públicos. Luego pasar la palabra: "¿Qué preguntas tienen?"
 - **CUES**: resolver un problema real · planificación urbana, equipamientos públicos · código abierto, GitHub · el cierre queda en pantalla durante todas las preguntas · coincidencia con HOT = descarga GeoJSON temática, y ahí termina · volver a la tabla comparativa si hace falta
 - **BRIDGE**: ninguno. Este es el final.
-- **GUARD**: Esta es la invitación: bajar el ritmo, levantar la mirada. Nunca "¿alguna pregunta?": invita a una sala en silencio. Ser generoso con todos los demás proyectos.
+- **GUARD**: Esta es la invitación: bajar el ritmo, levantar la mirada. Nunca "¿alguna pregunta?": invita al silencio. Ser generoso con todos los demás proyectos.
 -->
