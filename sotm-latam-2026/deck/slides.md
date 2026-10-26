@@ -224,8 +224,25 @@ section: Armar un stack
 <!--
 - **BEAT**: El flujo renovado: OSM se replica cada minuto en una instancia dedicada de Overpass. Un cron actualiza los datasets existentes en PostgreSQL; otro envía a los usuarios un reporte por correo cuando sus datasets cambian. La aplicación web muestra todo en el navegador.
 - **CUES**: replicación por minuto · Overpass dedicado, los públicos están saturados · cron de actualización de datasets · cron de reportes por correo · ambos leen/escriben en PostgreSQL
-- **BRIDGE**: "Y los datos fluyen de forma perezosa..."
+- **BRIDGE**: "¿Por qué una instancia propia? Porque Overpass tiene mala fama..."
 - **GUARD**: Mantenerlo general. Nada de detalle de arquitectura; la sala no lo necesita.
+-->
+
+---
+
+<div class="statement">
+
+# ¿Overpass es poco confiable?
+
+<div class="sub">La mala fama viene sobre todo de los servidores públicos saturados. Con una instancia propia, el mismo software responde bien.</div>
+
+</div>
+
+<!--
+- **BEAT**: Mucha gente cree que Overpass es inestable: errores 429, timeouts, consultas que fallan. Casi siempre es el servidor público, que recibe alrededor de un millón de consultas por día y hoy está por encima de su capacidad, en gran parte por bots. Nuestra instancia dedicada está casi ociosa: sin errores, la mayoría de las respuestas en menos de un segundo, datos con un minuto de retraso.
+- **CUES**: 429 y 504 = política de carga, no bugs · servidor público: ~1M consultas/día, la wiki dice "no esperes alta confiabilidad" · el manual recomienda instancia propia a usuarios intensivos · la nuestra: CPU ~99% ociosa, cero 429/504, p95 < 1 s, ~1 min de retraso
+- **BRIDGE**: "Y aun con espacio de sobra, los datos fluyen de forma perezosa..."
+- **GUARD**: Decir "sobre todo", no "nunca es el software": hay bugs reales (memoria con `[date]`, `meta` lento). Las cifras propias son de los logs recientes, no un SLA. Sin specs del servidor. Agradecer a quienes operan las instancias públicas, no culparlos. Si preguntan: usamos la versión estándar 0.7.62, todas nuestras consultas piden `meta` y aun así responden en menos de un segundo; desde 2025 casi todo el trabajo del mantenedor es contra bots (cuotas, listas negras).
 -->
 
 ---
