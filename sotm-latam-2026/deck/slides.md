@@ -56,7 +56,7 @@ mdc: true
 -->
 
 ---
-section: Historias de datos desperdiciados
+section: Datos desperdiciados
 ---
 
 <div class="statement anchor-low">
@@ -70,25 +70,25 @@ section: Historias de datos desperdiciados
 <!--
 - **BEAT**: En 2003 levanté estas vías a mano. Los datos quedaron enterrados en un informe.
 - **CUES**: practicante, consultora de transporte · anillo vial, camiones fuera de la ciudad · auto + chofer, avenida por avenida
-- **BRIDGE**: "Siete años después, el mismo problema, otra ciudad..."
-- **GUARD**: Solo plantear la escena; el remate viene en la diapositiva de OSM. Contarlo con calma.
+- **BRIDGE**: "Años después llegué a OpenStreetMap, y vi otra posibilidad..."
+- **GUARD**: Solo plantear la escena; el remate viene en la siguiente tarjeta. Contarlo con calma.
 -->
 
 ---
 
 <div class="statement anchor-low">
 
-# Ciudad de México, 2010
+# Cuando llegué a OpenStreetMap
 
-<div class="sub">Mapear paradas informales de autobús para planear rutas.</div>
+<div class="sub">Un lugar común donde las instituciones públicas sin equipo SIG propio podían compartir y reutilizar datos.</div>
 
 </div>
 
 <!--
-- **BEAT**: 2010, aquí en la Ciudad de México: las paradas no existían en ningún lado, solo en la memoria de los choferes. Las mapeamos; los datos se quedaron en el proyecto.
-- **CUES**: otra consultora · sur de la ciudad · transporte informal, peseros · equipos de campo otra vez · esta sala conoce esta historia mejor que yo: decirlo
-- **BRIDGE**: "En esa época yo ya conocía OpenStreetMap..."
-- **GUARD**: Decir "al menos en esa época". No afirmar que la Ciudad de México sigue así.
+- **BEAT**: Cuando llegué a OSM vi eso: un lugar común. Lo que una consultora levanta para un proyecto, otra institución lo puede reutilizar, en vez de pagar para levantarlo de nuevo. Sobre todo para instituciones que no tienen un equipo SIG propio.
+- **CUES**: datos levantados una vez, reutilizados muchas · en vez de quedar en un informe · instituciones sin equipo SIG propio · es uno de los aspectos de OSM, no el único
+- **BRIDGE**: "Hoy OSM ya es maduro. Pero la pregunta sigue..."
+- **GUARD**: Tono neutral: hablar de capacidad técnica, no de presupuesto ni de política.
 -->
 
 ---
@@ -104,8 +104,8 @@ section: Explorar datos urbanos
 </div>
 
 <!--
-- **BEAT**: Tercera tarjeta: OSM hoy. En aquel entonces era joven, y parecía lo indicado para ciudades que no pueden mantener un equipo SIG. Ahora es maduro. Pero ¿una persona no técnica puede encontrar los datos de su ciudad?
-- **CUES**: primeros años, América Latina · sin equipo SIG permanente · maduro ahora · la pregunta, en voz alta
+- **BEAT**: Tercera tarjeta: OSM hoy. Ya es maduro, y los datos están ahí. Pero ¿una persona no técnica puede encontrar los datos de su ciudad?
+- **CUES**: maduro ahora · los datos existen · la pregunta, en voz alta
 - **BRIDGE**: "El ecosistema alrededor de OSM hoy es muy rico..."
 - **GUARD**: Dejar la pregunta en el aire. No responderla todavía.
 -->
@@ -241,8 +241,23 @@ section: Armar un stack
 <!--
 - **BEAT**: Mucha gente cree que Overpass es inestable: errores 429, timeouts, consultas que fallan. Casi siempre es el servidor público, que recibe alrededor de un millón de consultas por día y hoy está por encima de su capacidad, en gran parte por bots. Nuestra instancia dedicada está casi ociosa: sin errores, la mayoría de las respuestas en menos de un segundo, datos con un minuto de retraso.
 - **CUES**: 429 y 504 = política de carga, no bugs · servidor público: ~1M consultas/día, la wiki dice "no esperes alta confiabilidad" · el manual recomienda instancia propia a usuarios intensivos · la nuestra: CPU ~99% ociosa, cero 429/504, p95 < 1 s, ~1 min de retraso
-- **BRIDGE**: "Y aun con espacio de sobra, los datos fluyen de forma perezosa..."
+- **BRIDGE**: "El otro servicio de OSM del que dependemos es Nominatim, para buscar ciudades..."
 - **GUARD**: Decir "sobre todo", no "nunca es el software": hay bugs reales (memoria con `[date]`, `meta` lento). Las cifras propias son de los logs recientes, no un SLA. Sin specs del servidor. Agradecer a quienes operan las instancias públicas, no culparlos. Si preguntan: usamos la versión estándar 0.7.62, todas nuestras consultas piden `meta` y aun así responden en menos de un segundo; desde 2025 casi todo el trabajo del mantenedor es contra bots (cuotas, listas negras).
+-->
+
+---
+title: Buscar una ciudad
+---
+
+<Shot src="/captures/search-mexico.jpeg" :x="330" :y="0" :w="512" :h="320" :vw="1600" :vh="1000" />
+
+<div class="shot-cap">La búsqueda usa Nominatim: un resultado por lugar, con estado, país y población.</div>
+
+<!--
+- **BEAT**: Para encontrar una ciudad usamos Nominatim, el buscador de OSM. Cada resultado es un límite administrativo de OSM: ciudad, estado o país. Pedimos también sus etiquetas extra, y de ahí sale la población: es la etiqueta `population` del propio límite en OSM. Si la etiqueta no existe, no se muestra.
+- **CUES**: Nominatim = buscador de OSM · resultado = relación de límite administrativo · «México»: la ciudad, el estado, el país · población = etiqueta `population`, vía extratags · estado y país vienen de la dirección del resultado · un resultado por lugar: antes París salía dos veces
+- **BRIDGE**: "Volviendo a los datos: fluyen de forma perezosa..."
+- **GUARD**: No prometer población en todas las ciudades: solo aparece si está etiquetada en OSM. Si preguntan: hay que escribir el nombre casi completo, Nominatim no está hecho para autocompletar.
 -->
 
 ---
