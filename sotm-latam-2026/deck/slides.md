@@ -124,8 +124,43 @@ section: Explorar datos urbanos
 [click] Pero para alguien sin conocimientos técnicos, como una oficina municipal sin equipo SIG, encontrar los datos de su ciudad y seguir sus cambios todavía es difícil. La brecha ya no son los datos, es el acceso.
 
 - **CUES**: 2008, lo descubrí · potencial: mapear una vez, reutilizar muchas · lo que faltó en São Paulo · joven, pocas herramientas → hoy, ecosistema rico → sin conocimientos técnicos: encontrar y seguir, todavía difícil
-- **BRIDGE**: "Les muestro cómo se ve hoy, sin código..."
+- **BRIDGE**: "Y ahí empecé a construir algo..."
 - **GUARD**: Primero elogiar las herramientas: la brecha es de público, no de calidad. Las herramientas se nombran después, en la tabla comparativa. "Seguir" es la palabra clave: prepara la demo.
+-->
+
+---
+
+<div class="statement anchor-low">
+
+# OSM for Cities
+
+<div class="sub">2023: un prototipo para seguir los datos de cada ciudad.</div>
+<div v-click class="sub story-step">2025: lo empecé a reescribir desde cero.</div>
+<div v-click class="sub story-step">Hoy: los datos de tu ciudad en el navegador, con una interfaz simple.</div>
+
+</div>
+
+<style>
+/* Same stepped story as the São Paulo slide. */
+.statement .story-step {
+  margin-top: 0.75rem;
+}
+.statement .sub {
+  max-width: 60ch;
+  text-wrap: balance;
+}
+</style>
+
+<!--
+- **BEAT**: En 2023 empecé a prototipar una forma de seguir los datos de OSM ciudad por ciudad. Llegó a cubrir todo Brasil, todos los días, pero era frágil.
+
+[click] En 2025 lo empecé a reescribir desde cero, apoyándome en herramientas que ya existen.
+
+[click] Hoy: los datos de tu ciudad en el navegador, con una interfaz simple, para explorarlos y seguir sus cambios. Les muestro.
+
+- **CUES**: 2023, prototipo, seguir datos por ciudad · todo Brasil, frágil → 2025, reescritura desde cero → hoy: en el navegador, interfaz simple, explorar y seguir
+- **BRIDGE**: "Les muestro cómo se ve hoy..."
+- **GUARD**: Rápido: la historia técnica de la v0 viene después, en la parte de cómo está hecho. Aquí solo las fechas y la idea.
 -->
 
 ---
@@ -337,7 +372,7 @@ title: La categoría de transporte
 <!--
 - **BEAT**: La herramienta más cercana es HOT Export Tool. Esto no la reemplaza. La complementa.
 - **CUES**: pregunta recurrente · unidad de trabajo, público, continuidad, análisis · "no soy experto en las demás"
-- **BRIDGE**: "Ahora, para quien quiera saber cómo está hecho. Empecé con algo muy distinto..."
+- **BRIDGE**: "Ahora, para quien quiera saber cómo está hecho. Volvamos a la v0..."
 - **GUARD**: Agradecer a las otras herramientas. Decirlo: puede que me falten cosas, y no las conozco todas a fondo.
 -->
 
@@ -356,7 +391,7 @@ section: Armar un stack
 </div>
 
 <!--
-- **BEAT**: Mi primer intento, la v0: un proceso diario recortaba cada ciudad brasileña del archivo planet, guardaba todo en un repositorio git, y sobre eso funcionaba un tablero sencillo.
+- **BEAT**: Como les conté, la v0 era de 2023. Así funcionaba: un proceso diario recortaba cada ciudad brasileña del archivo planet, guardaba todo en un repositorio git, y sobre eso funcionaba un tablero sencillo.
 - **CUES**: extractos diarios, por ciudad · archivo planet · repo git, cities-of/brazil · tablero sencillo · frágil, sin camino hacia una interfaz
 - **BRIDGE**: "Me di cuenta de que podía apoyarme en herramientas que ya existen..."
 - **GUARD**: Decirlo claro: llegó a cubrir todo Brasil, todos los días. El problema era la fragilidad, no la ambición.
