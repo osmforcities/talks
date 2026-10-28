@@ -53,8 +53,8 @@ const dots = computed(() =>
 </script>
 
 <template>
+  <span v-if="currentSection" class="running-head">{{ currentSection }}</span>
   <footer class="section-rail">
-    <span v-if="currentSection" class="running-head">{{ currentSection }}</span>
     <nav class="dots" aria-label="Slide progress">
       <button
         v-for="d in dots"
@@ -165,19 +165,35 @@ const dots = computed(() =>
   transform: rotate(45deg);
 }
 
-/* Running head: tracked caps pinned to the rail's left edge, level with the dots.
-   Warm white at 0.6 is ~8:1 — real text, so it clears the text floor, while staying
-   quieter than anything on the slide. Absolute, so the dot strip stays centered on
-   the slide rather than shifting right by the label's width. */
-.section-rail .running-head {
+/* Running head: tracked caps in the top-right corner. It used to sit left of the dot
+   strip, where long section names ran under the first dots. Same z-index as the
+   rail, so full-bleed shots do not cover it. */
+.running-head {
   position: absolute;
-  left: 3.5rem;
-  bottom: 1.15rem;
+  top: 1.4rem;
+  right: 3.5rem;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  line-height: 1;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: rgba(245, 244, 239, 0.6);
+  /* Accent, not muted white: warm white at 0.6 washed out on a projector, and the
+     shared colour ties the label to the dot strip it names. */
+  color: var(--ofc-accent);
+}
+
+/* Same filled 9px circle as a section-start dot in the strip below. */
+.running-head::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ofc-accent);
 }
 
 /* Hit area larger than the dot, so a dot is clickable without precision aiming.

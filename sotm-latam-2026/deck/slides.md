@@ -591,7 +591,7 @@ title: La página de espera
 
 ---
 class: cover
-section: Retroalimentación de la comunidad
+section: Preguntas y comentarios
 ---
 
 <div class="cover-page">
@@ -604,7 +604,7 @@ section: Retroalimentación de la comunidad
 
 <div class="ramp" />
 
-<div class="cover-tagline">Casos de uso, bugs, preguntas: todo es bienvenido.</div>
+<div class="cover-tagline">1. Busca tu municipio.<br>2. Guarda un dataset y recibe los cambios por correo.<br>3. Descárgalo y ábrelo en QGIS.<br><br>Gratis y de código abierto. Casos de uso, bugs, preguntas: todo es bienvenido.</div>
 
 </div>
 
@@ -627,7 +627,7 @@ section: Retroalimentación de la comunidad
 </div>
 
 <!--
-- **BEAT**: La invitación, y luego el agradecimiento: pruébenlo, envíen retroalimentación, sobre todo quienes trabajan en planificación urbana local o equipamientos públicos. Luego pasar la palabra: "¿Qué preguntas tienen?"
+- **BEAT**: La invitación, y luego el agradecimiento: pruébenlo, envíen retroalimentación, sobre todo quienes trabajan en planificación urbana local o equipamientos públicos. Si trabajas en un municipio: busca tu ciudad hoy y guarda un dataset. Luego pasar la palabra: "¿Qué preguntas tienen?"
 - **CUES**: resolver un problema real · planificación urbana, equipamientos públicos · código abierto, GitHub · el cierre queda en pantalla durante todas las preguntas · coincidencia con HOT = descarga GeoJSON temática, y ahí termina · volver a la tabla comparativa si hace falta
 - **BRIDGE**: ninguno. Este es el final.
 - **GUARD**: Esta es la invitación: bajar el ritmo, levantar la mirada. Nunca "¿alguna pregunta?": invita al silencio. Ser generoso con todos los demás proyectos.
