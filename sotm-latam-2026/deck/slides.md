@@ -177,8 +177,8 @@ section: Demo
 
 <!--
 - **BEAT**: En vivo, en el navegador. Portada → buscar "Ciudad de México" → paradas de autobús → panel → mapa → colorear por silla de ruedas.
-- **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris · 7. si sobra tiempo: ciclovías por regularidad
-- **SALIDA**: Demo bien → volver al deck, `g` 15 Enter (¿Qué más?), saltar 6-14. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-14 son la misma demo en capturas.
+- **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris
+- **SALIDA**: Demo bien → volver al deck, `g` 14 Enter (¿Qué más?), saltar 6-13. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-13 son la misma demo en capturas.
 - **BACKUP**: si la búsqueda falla, pegar la URL: osmforcities.org/es/area/17483459/dataset/bus-stops
 - **BRIDGE**: "Entonces, ¿qué más se puede consultar?..." (o, si falló: "Lo mismo, en capturas. Empezando por la búsqueda...")
 - **GUARD**: Vista general, rápida: el panel se lee, no se explica fila por fila. Mencionar de paso el correo: guardar pide un correo porque las actualizaciones necesitan a dónde llegar.
@@ -301,23 +301,8 @@ title: Paradas según acceso en silla de ruedas
 <!--
 - **BEAT**: El mismo mapa, coloreado según acceso en silla de ruedas. Casi todo es gris: de 1,861 paradas, solo unas 40 tienen el dato.
 - **CUES**: sí 34 · no 5 · limitado 2 · sin dato 1,830 · cobertura 2% · en París era 79%
-- **BRIDGE**: "Otro ejemplo, en un dataset de líneas..."
-- **GUARD**: Presentarlo como invitación a mapear, nunca como falla de los mapeadores. El gris es un mapa de trabajo pendiente: una tarde de mapatón lo cambia.
--->
-
----
-title: Ciclovías según regularidad
----
-
-<Shot src="/captures/cdmx-cycleways-smoothness.jpeg" :vw="1216" :vh="759" />
-
-<div class="shot-cap">Ciclovías según la regularidad de la superficie: 9 de cada 10 tramos no tienen el dato.</div>
-
-<!--
-- **BEAT**: Ciclovías coloreadas según la regularidad de la superficie. Casi ningún tramo tiene la etiqueta smoothness, y el mapa lo muestra de un vistazo.
-- **CUES**: líneas, no puntos · 542 tramos, 82 km · smoothness 10% · 489 de 542 sin dato · un mapa de lo que falta mapear
 - **BRIDGE**: "Entonces, ¿qué más se puede consultar?..."
-- **GUARD**: La plantilla cuenta solo highway=cycleway. Muchas ciclovías de la ciudad están mapeadas como carril sobre la calle (cycleway=lane), así que no decir que la CDMX tiene solo 82 km de ciclovías.
+- **GUARD**: Presentarlo como invitación a mapear, nunca como falla de los mapeadores. El gris es un mapa de trabajo pendiente: una tarde de mapatón lo cambia.
 -->
 
 ---
@@ -333,7 +318,7 @@ section: Más sobre la plataforma
 </div>
 
 <!--
-- **BEAT**: Paradas de autobús y ciclovías fueron dos ejemplos. Más de 200 plantillas basadas en la wiki funcionan igual, organizadas por categoría, y evolucionan a la par de cómo mapea la comunidad.
+- **BEAT**: Paradas de autobús fue un ejemplo. Más de 200 plantillas basadas en la wiki funcionan igual, organizadas por categoría, y evolucionan a la par de cómo mapea la comunidad.
 - **CUES**: dos ejemplos hasta ahora · escuelas, hospitales, semáforos · sigue la wiki · el esquema sigue evolucionando
 - **BRIDGE**: "De vuelta en la página de la Ciudad de México, filtrando por categoría..."
 - **GUARD**: Advertirlo en voz alta: que una plantilla esté listada no significa que la ciudad tenga esos datos, por ejemplo refugios de montaña en ciudades del desierto.
