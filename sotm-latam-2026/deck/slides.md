@@ -377,8 +377,8 @@ section: Para qué sirve
 # Más allá de la planificación urbana
 
 <div class="sub">Los mismos datos sirven para otras preguntas.</div>
-<div v-click class="sub use-step"><strong>Salud pública:</strong> en un brote, los edificios muestran dónde vive la gente, y las clínicas y farmacias, dónde atenderla.</div>
-<div v-click class="sub use-step"><strong>Emergencias:</strong> estaciones de bomberos, ambulancias, hidrantes. Próximamente: puntos de reunión, sirenas, refugios.</div>
+<div v-click class="sub use-step"><strong>Salud pública:</strong> en una epidemia, los edificios muestran dónde vive la gente, y las clínicas y farmacias, dónde atenderla.</div>
+<div v-click class="sub use-step"><strong>Emergencias:</strong> estaciones de bomberos, ambulancias, hidrantes y desfibriladores.</div>
 <div v-click class="sub use-step"><strong>Investigación y periodismo:</strong> comparar ciudades, seguir aperturas y cierres.</div>
 
 </div>
@@ -398,9 +398,9 @@ section: Para qué sirve
 
 <!--
 - **BEAT**: Yo empecé pensando en planificación urbana, pero en París la gente preguntó por otros usos que no había imaginado. Los mismos datos responden otras preguntas.
-- **CUES**: [click] salud pública: ayer, charla sobre DHIS2, la plataforma de los ministerios de salud para seguir epidemias, con un ejemplo de Santa Lucía · los edificios dicen dónde vive la gente, campañas casa por casa · Santa Lucía tiene 68,500 edificios en OSM · clínicas, puestos de salud, farmacias, laboratorios · [click] emergencias: bomberos, ambulancias, hidrantes, desfibriladores; vienen puntos de reunión, sirenas, refugios · [click] investigación y periodismo: comparar ciudades, aperturas y cierres
+- **CUES**: [click] salud pública: ayer, charla sobre DHIS2, la plataforma de los ministerios de salud para seguir epidemias, con un ejemplo de Santa Lucía · los edificios dicen dónde vive la gente, campañas casa por casa · Santa Lucía tiene 68,500 edificios en OSM · clínicas, puestos de salud, farmacias, laboratorios · [click] emergencias: bomberos, ambulancias, hidrantes, desfibriladores · [click] investigación y periodismo: comparar ciudades, aperturas y cierres
 - **BRIDGE**: "¿Y cómo se compara con lo que ya existe? Armé una tabla, no exhaustiva..."
-- **GUARD**: Los edificios llegan con las vector tiles, que muestro al final: no decir que ya están disponibles. No decir que DHIS2 usa OSM for Cities: solo que el caso de uso es el mismo. Las plantillas de puntos de reunión, sirenas y refugios todavía no existen: decir "próximamente". Si preguntan por daños después de un sismo o una inundación: está planeado sobre los edificios, todavía no.
+- **GUARD**: Los edificios llegan con las vector tiles, que muestro al final: no decir que ya están disponibles. No decir que DHIS2 usa OSM for Cities: solo que el caso de uso es el mismo. Si preguntan por puntos de reunión, sirenas o refugios: todavía no hay plantillas, están en un ticket. Si preguntan por daños después de un sismo o una inundación: está planeado sobre los edificios, todavía no.
 -->
 
 ---
