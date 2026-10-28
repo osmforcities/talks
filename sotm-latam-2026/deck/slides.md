@@ -584,32 +584,15 @@ out geom meta;</pre>
 section: Actualizaciones
 ---
 
-<div class="statement">
-
-# Solo se actualiza lo que alguien guarda
-
-<div class="sub">Abrir un dataset lo consulta una vez. Guardarlo lo actualiza a diario.</div>
-
-</div>
-
-<!--
-- **BEAT**: Al abrir la página de un dataset, se consulta una sola vez. Guardarlo es lo que lo mantiene actualizado. La atención decide qué se consulta, porque monitorear todo el planeta, todos los días, es inviable.
-- **CUES**: abrir una página, se consulta una vez · guardar = actualización diaria · la atención decide · todo el planeta, inviable
-- **BRIDGE**: "Así funciona la actualización diaria..."
-- **GUARD**: Esto responde la pregunta silenciosa de la sala: "¿¡consultan todo OSM a diario!?". Aterrizarlo rápido y seguir.
--->
-
----
-
 <div class="diagram">
   <img class="diagram-svg" src="/v1-data-flow.svg" alt="Los datos de OSM fluyen por diffs por minuto hacia Overpass, luego mediante actualizaciones diarias hacia PostgreSQL, y de ahí al navegador y al correo del usuario" />
 </div>
 
 <div class="corner-copy">
 
-# El flujo de actualización
+# Solo se actualiza lo que alguien guarda
 
-<div class="lede">OSM llega a Overpass cada minuto. Cada día, un cron actualiza los datasets guardados y otro avisa por correo lo que cambió.</div>
+<div class="lede">Abrir un dataset lo consulta una vez. Guardarlo lo suma a la actualización diaria, y los cambios llegan por correo.</div>
 
 </div>
 
@@ -630,10 +613,10 @@ section: Actualizaciones
 </style>
 
 <!--
-- **BEAT**: El flujo de actualización: OSM se replica cada minuto en una instancia dedicada de Overpass. Un cron actualiza los datasets guardados en PostgreSQL; otro envía a los usuarios un reporte por correo cuando sus datasets cambian. La aplicación web muestra todo en el navegador.
-- **CUES**: replicación por minuto · Overpass dedicado · cron diario: solo datasets guardados · cron de reportes por correo · ambos leen/escriben en PostgreSQL
+- **BEAT**: Monitorear todo el planeta, todos los días, es inviable. Entonces la atención decide: al abrir la página de un dataset, se consulta una sola vez; guardarlo es lo que lo mantiene actualizado. El flujo: OSM se replica cada minuto en nuestro Overpass. Un cron actualiza a diario los datasets guardados en PostgreSQL; otro envía a los usuarios un reporte por correo cuando sus datasets cambian.
+- **CUES**: todo el planeta a diario, inviable · abrir = una consulta · guardar = actualización diaria · la atención decide → replicación por minuto · cron diario: solo guardados · cron de reportes por correo · ambos leen/escriben en PostgreSQL
 - **BRIDGE**: "Tercer problema: mapas rápidos. Hoy, los datasets pesados no caben..."
-- **GUARD**: Mantenerlo general. Nada de detalle de arquitectura; la sala no lo necesita.
+- **GUARD**: Esto responde la pregunta silenciosa de la sala: "¿¡consultan todo OSM a diario!?". Mantener el diagrama general, sin detalle de arquitectura.
 -->
 
 ---
