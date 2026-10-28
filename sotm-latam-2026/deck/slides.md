@@ -625,64 +625,46 @@ section: Mapas rápidos
 
 <div class="statement">
 
-# Hoy, los datasets pesados no caben
+# Mapas rápidos
 
-<div class="sub">Todo el GeoJSON viaja dentro de la página. En una prueba, los edificios de Ámsterdam pesaban 124 MB y ocupaban 1.2 GB de memoria del navegador.</div>
+<div class="sub">Hoy: todo el GeoJSON viaja dentro de la página. Los edificios de una ciudad grande no caben.</div>
+<div v-click class="sub story-step">Próximamente: vector tiles, generadas junto a Overpass. El navegador descarga solo lo que está a la vista.</div>
 
 </div>
+
+<style>
+.statement .story-step {
+  margin-top: 0.75rem;
+}
+.statement .sub {
+  max-width: 60ch;
+  text-wrap: balance;
+}
+</style>
 
 <!--
 - **BEAT**: El límite de hoy: la página carga el dataset completo como GeoJSON. Para paradas de autobús, perfecto. Para edificios o calles de una ciudad grande, son cientos de miles de elementos y el navegador no aguanta. Por eso hoy no ofrecemos edificios.
-- **CUES**: GeoJSON completo dentro de la página · Ámsterdam, edificios: 198 mil elementos, 124 MB, 1.2 GB de memoria · hoy hay un tope de tamaño · edificios, calles, banquetas: lo que más pide la comunidad
-- **BRIDGE**: "La solución: no mandar todo, solo lo que se ve..."
-- **GUARD**: Ámsterdam fue una prueba interna, no algo que la gente haya visto romperse en producción: el tope lo impide.
+
+[click] La versión 2: un servicio nuevo, al lado de nuestro Overpass, consulta los datos y genera un archivo PMTiles por dataset con tippecanoe. La app sirve ese archivo estático y el navegador pide solo los tiles visibles.
+
+- **CUES**: GeoJSON completo dentro de la página · edificios, calles, banquetas: lo que más pide la comunidad · hoy hay un tope de tamaño → un PMTiles por dataset · tippecanoe · archivos estáticos, sin servidor de tiles · antigüedad y filtros se conservan
+- **BRIDGE**: "Así se ven los edificios de Santa Lucía..."
+- **GUARD**: Sin detalles del servidor. Si preguntan por tiles globales (OpenFreeMap, Protomaps): no traen la fecha de edición por elemento, y sin eso no hay mapa de antigüedad. Si piden números: en una prueba interna, los edificios de Ámsterdam en GeoJSON pesaban 124 MB y ocupaban 1.2 GB de memoria; el tope impide que eso pase en producción.
 -->
 
 ---
+title: Edificios de Santa Lucía
+---
 
-<div class="statement">
+<Shot src="/captures/v2-saint-lucia-buildings.jpeg" :vw="1600" :vh="1000" />
 
-# Próximamente: vector tiles junto a Overpass
-
-<div class="sub">Cada dataset se convierte en un archivo PMTiles. El navegador descarga solo la parte del mapa que está a la vista.</div>
-
-</div>
+<div class="shot-cap">Próximamente: los 68,500 edificios de Santa Lucía, coloreados por tipo.</div>
 
 <!--
-- **BEAT**: La versión 2: un servicio nuevo, al lado de nuestro Overpass, consulta los datos y genera un archivo PMTiles por dataset con tippecanoe. La app sirve ese archivo estático y el navegador pide solo los tiles visibles.
-- **CUES**: un PMTiles por dataset · tippecanoe · archivos estáticos, sin servidor de tiles · los datos viajan dentro del mismo servidor, no por internet · antigüedad y filtros se conservan · las 240+ plantillas igual que antes
-- **BRIDGE**: "Así se ven los edificios de la Ciudad de México..."
-- **GUARD**: Sin detalles del servidor. Si preguntan por tiles globales (OpenFreeMap, Protomaps): no traen la fecha de edición por elemento, y sin eso no hay mapa de antigüedad.
--->
-
----
-title: Edificios de la Ciudad de México
----
-
-<Shot src="/captures/v2-cdmx-buildings.jpeg" :vw="1600" :vh="1000" />
-
-<div class="shot-cap">Próximamente: los 139,800 edificios de la Ciudad de México, coloreados según la antigüedad de la edición.</div>
-
-<!--
-- **BEAT**: Edificios de la Ciudad de México, desde vector tiles: casi 140 mil elementos, el mismo panel y el mismo mapa de antigüedad que ya vimos. El servicio lo generó en menos de un minuto, y la pestaña usa unos 140 MB de memoria.
-- **CUES**: 139.8k edificios · 1.6k mapeadores · 133 mil editados hace más de 90 días · generado en menos de un minuto · ~140 MB en el navegador, contra 1.2 GB de Ámsterdam
-- **BRIDGE**: "¿Y si la ciudad es todavía más grande?..."
-- **GUARD**: Captura de la versión en desarrollo, no de producción. Decir "próximamente", sin fecha. La comparación con Ámsterdam es aproximada: otra ciudad, otro tamaño.
--->
-
----
-title: La página de espera
----
-
-<Shot src="/captures/v2-cdmx-wait-page.jpeg" :x="432" :y="266" :w="736" :h="460" :vw="1600" :vh="1000" />
-
-<div class="shot-cap">Los datasets grandes se generan en segundo plano, y la app avisa por correo cuando el mapa está listo.</div>
-
-<!--
-- **BEAT**: Para las ciudades más grandes, crear el dataset toma minutos. La página muestra el avance paso a paso, y se puede guardar el dataset para recibir un correo cuando el mapa esté listo.
-- **CUES**: avance por pasos: contar, obtener, generar tiles · "guardar y avisarme por correo" · São Paulo: 2.1 millones de edificios, funciona · lo que no cabe se rechaza con un mensaje claro, no con un error
+- **BEAT**: Santa Lucía, la del ejemplo de DHIS2: 68,500 edificios, desde vector tiles, con el mismo panel de siempre. Coloreados por tipo: casas, escuelas, iglesias, comercios. Es lo que pedía la charla de salud: dónde vive la gente.
+- **CUES**: 68.5k edificios · 915 mapeadores · por tipo: casas 13 mil, escuelas, iglesias · "Sí" = building=yes, sin tipo: 54 mil, trabajo para mapear
 - **BRIDGE**: "¿Y cómo se compara con lo que ya existe? Armé una tabla, no exhaustiva..."
-- **GUARD**: "Próximamente", sin fecha. Si preguntan cuándo: "en las próximas semanas, ya está en pruebas". Ciudades enteras sí; áreas metropolitanas o estados no son el objetivo.
+- **GUARD**: Captura de la versión en desarrollo, no de producción. Decir "próximamente", sin fecha. Si preguntan cuándo: "en las próximas semanas, ya está en pruebas". Si preguntan por ciudades más grandes: los datasets grandes se generan en segundo plano y la app avisa por correo cuando el mapa está listo; São Paulo, con 2.1 millones de edificios, funciona. Lo que no cabe se rechaza con un mensaje claro. Ciudades enteras sí; áreas metropolitanas o estados no son el objetivo.
 -->
 
 ---
