@@ -706,35 +706,7 @@ section: Preguntas y comentarios
 
 <!--
 - **BEAT**: La invitación, y luego el agradecimiento: pruébenlo, envíen retroalimentación, sobre todo quienes trabajan en planificación urbana local o equipamientos públicos. Si trabajas en un municipio: busca tu ciudad hoy y guarda un dataset. Luego pasar la palabra: "¿Qué preguntas tienen?"
-- **CUES**: resolver un problema real · planificación urbana, equipamientos públicos · código abierto, GitHub · el cierre queda en pantalla durante todas las preguntas · coincidencia con HOT = descarga GeoJSON temática, y ahí termina · si preguntan por otras herramientas: HOT Export Tool es la más cercana, esto no la reemplaza, la complementa; → una vez muestra la tabla del anexo
+- **CUES**: resolver un problema real · planificación urbana, equipamientos públicos · código abierto, GitHub · el cierre queda en pantalla durante todas las preguntas · coincidencia con HOT = descarga GeoJSON temática, y ahí termina · si preguntan por otras herramientas: HOT Export Tool es la más cercana, esto no la reemplaza, la complementa; Overpass Turbo y QuickOSM son para usuarios avanzados, esto es para quien no es técnico
 - **BRIDGE**: ninguno. Este es el final.
 - **GUARD**: Esta es la invitación: bajar el ritmo, levantar la mirada. Nunca "¿alguna pregunta?": invita al silencio. Ser generoso con todos los demás proyectos.
--->
-
----
-section: Anexo
----
-
-# Comparación con otras herramientas
-
-<div class="table-card">
-
-| Herramienta | Público | Actualización | Análisis integrado |
-| --- | --- | --- | --- |
-| HOT Export Tool | Equipos SIG y humanitarios | Exportación bajo demanda | No |
-| Overpass Turbo / QuickOSM | Usuarios avanzados | Consulta en vivo | No |
-| ohsome | Investigadores | Indicadores históricos | Sí |
-| Geofabrik / BBBike | Desarrolladores | Extractos diarios | No |
-| osmnx / pyrosm | Investigadores | Consulta en vivo | No |
-| MapComplete | Mapeadores | Edición en vivo | No |
-| Overture | Comercial / IA | Publicación mensual | No |
-| **OSM for Cities** | **Público no técnico** | **Diaria + alertas por correo** | **Sí** |
-
-</div>
-
-<!--
-- **BEAT**: Anexo, solo si preguntan. La herramienta más cercana es HOT Export Tool. Esto no la reemplaza. La complementa.
-- **CUES**: unidad de trabajo, público, continuidad, análisis · "no soy experto en las demás"
-- **BRIDGE**: ninguno. Volver con ← al cierre.
-- **GUARD**: Agradecer a las otras herramientas. Decirlo: puede que me falten cosas, y no las conozco todas a fondo.
 -->
