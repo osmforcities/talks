@@ -123,130 +123,30 @@ section: Explorar datos urbanos
 <!--
 - **BEAT**: El ecosistema hoy es rico. Pero llegar rápido a un dataset todavía exige conocimiento técnico: preprocesar y filtrar por tu propia área.
 - **CUES**: nombrarlas: HOT Export Tool, Overpass Turbo, ohsome, uMap, MapComplete · preprocesamiento · tu propia área
-- **BRIDGE**: "Armé una tabla, no exhaustiva, de las herramientas que existen..."
+- **BRIDGE**: "Les muestro cómo se ve hoy, sin código..."
 - **GUARD**: Primero elogiar las herramientas: la brecha es de público, no de calidad.
 -->
 
 ---
+section: Demo
+---
 
-# Comparación con otras herramientas
+<div class="statement centered">
 
-<div class="table-card">
-
-| Herramienta | Público | Actualización | Análisis integrado |
-| --- | --- | --- | --- |
-| HOT Export Tool | Equipos SIG y humanitarios | Exportación bajo demanda | No |
-| Overpass Turbo / QuickOSM | Usuarios avanzados | Consulta en vivo | No |
-| ohsome | Investigadores | Indicadores históricos | Sí |
-| Geofabrik / BBBike | Desarrolladores | Extractos diarios | No |
-| osmnx / pyrosm | Investigadores | Consulta en vivo | No |
-| MapComplete | Mapeadores | Edición en vivo | No |
-| Overture | Comercial / IA | Publicación mensual | No |
-| **OSM for Cities** | **Público no técnico** | **Diaria + alertas por correo** | **Sí** |
+# Demo
 
 </div>
 
 <!--
-- **BEAT**: La herramienta más cercana es HOT Export Tool. Esto no la reemplaza. La complementa.
-- **CUES**: pregunta recurrente · unidad de trabajo, público, continuidad, análisis · "no soy experto en las demás"
-- **BRIDGE**: "Sentía que funcionarios, urbanistas y comunidades locales todavía tenían que dar demasiados pasos..."
-- **GUARD**: Agradecer a las otras herramientas. Decirlo: puede que me falten cosas, y no las conozco todas a fondo.
--->
-
----
-title: v0, un primer intento
-section: Armar un stack
----
-
-# v0, un primer intento
-
-<div class="lede">Extractos diarios del archivo planet, guardados en un repositorio git.</div>
-
-<div class="img-pair">
-  <img src="/captures/2023-daily-extract.png" alt="" />
-  <img src="/captures/2023-git-repo.png" alt="" />
-</div>
-
-<!--
-- **BEAT**: Mi primer intento, la v0: un proceso diario recortaba cada ciudad brasileña del archivo planet, guardaba todo en un repositorio git, y sobre eso funcionaba un tablero sencillo.
-- **CUES**: extractos diarios, por ciudad · archivo planet · repo git, cities-of/brazil · tablero sencillo · frágil, sin camino hacia una interfaz
-- **BRIDGE**: "Me di cuenta de que podía apoyarme en herramientas que ya existen..."
-- **GUARD**: Decirlo claro: llegó a cubrir todo Brasil, todos los días. El problema era la fragilidad, no la ambición.
--->
-
----
-
-<div class="statement">
-
-# ¿Por qué no usar algo que ya existe?
-
-<div class="sub">Overpass ya resuelve muy bien las consultas a OSM. El esfuerzo podía dedicarse a la usabilidad.</div>
-
-</div>
-
-<!--
-- **BEAT**: La reescritura empezó con una pregunta: ¿por qué mantener mi propio pipeline si Overpass ya resuelve muy bien las consultas a OSM? Que Overpass haga las consultas y que el esfuerzo vaya a la usabilidad.
-- **CUES**: no reinventar la rueda · Overpass hace las consultas · el esfuerzo va a la usabilidad
-- **BRIDGE**: "Entonces el stack hoy es simple..."
-- **GUARD**: Reconocer a Overpass con calidez.
--->
-
----
-
-<div class="diagram">
-  <img class="diagram-svg" src="/v1-data-flow.svg" alt="Los datos de OSM fluyen por diffs por minuto hacia Overpass, luego mediante actualizaciones diarias hacia PostgreSQL, y de ahí al navegador y al correo del usuario" />
-</div>
-
-<div class="corner-copy">
-
-# El flujo renovado
-
-<div class="lede">Las herramientas existentes hacen el trabajo pesado: los datos de OSM pasan por Overpass y PostgreSQL hasta el navegador.</div>
-
-</div>
-
-<style>
-/* The drawing is heavy top-right and empty bottom-left; title and copy sit in
-   that empty corner, aligned to the layout padding. */
-.corner-copy {
-  position: absolute;
-  left: 3.5rem;
-  bottom: 4.5rem;
-}
-.corner-copy .lede {
-  margin-top: 1rem;
-}
-.diagram {
-  height: 100%;
-}
-</style>
-
-<!--
-- **BEAT**: El flujo renovado: OSM se replica cada minuto en una instancia dedicada de Overpass. Un cron actualiza los datasets existentes en PostgreSQL; otro envía a los usuarios un reporte por correo cuando sus datasets cambian. La aplicación web muestra todo en el navegador.
-- **CUES**: replicación por minuto · Overpass dedicado, los públicos están saturados · cron de actualización de datasets · cron de reportes por correo · ambos leen/escriben en PostgreSQL
-- **BRIDGE**: "¿Por qué una instancia propia? Porque Overpass tiene mala fama..."
-- **GUARD**: Mantenerlo general. Nada de detalle de arquitectura; la sala no lo necesita.
--->
-
----
-
-<div class="statement">
-
-# ¿Overpass es poco confiable?
-
-<div class="sub">La mala fama viene sobre todo de los servidores públicos saturados. Con una instancia propia, el mismo software responde bien.</div>
-
-</div>
-
-<!--
-- **BEAT**: Mucha gente cree que Overpass es inestable: errores 429, timeouts, consultas que fallan. Casi siempre es el servidor público, que recibe alrededor de un millón de consultas por día y hoy está por encima de su capacidad, en gran parte por bots. Nuestra instancia dedicada está casi ociosa: sin errores, la mayoría de las respuestas en menos de un segundo, datos con un minuto de retraso.
-- **CUES**: 429 y 504 = política de carga, no bugs · servidor público: ~1M consultas/día, la wiki dice "no esperes alta confiabilidad" · el manual recomienda instancia propia a usuarios intensivos · la nuestra: CPU ~99% ociosa, cero 429/504, p95 < 1 s, ~1 min de retraso
-- **BRIDGE**: "El otro servicio de OSM del que dependemos es Nominatim, para buscar ciudades..."
-- **GUARD**: Decir "sobre todo", no "nunca es el software": hay bugs reales (memoria con `[date]`, `meta` lento). Las cifras propias son de los logs recientes, no un SLA. Sin specs del servidor. Agradecer a quienes operan las instancias públicas, no culparlos. Si preguntan: usamos la versión estándar 0.7.62, todas nuestras consultas piden `meta` y aun así responden en menos de un segundo; desde 2025 casi todo el trabajo del mantenedor es contra bots (cuotas, listas negras).
+- **BEAT**: La respuesta a la pregunta, en movimiento. Un recorrido grabado, narrado en vivo: abrir osmforcities.org sin iniciar sesión → los mapas destacados en la portada → la página Explorar y lo que lista → buscar Ciudad de México → paradas de autobús → guardar.
+- **CUES**: sin iniciar sesión, navegador anónimo · mapas destacados · página Explorar · buscar la ciudad · paradas de autobús · guardar
+- **BRIDGE**: "Ahora, con calma, parte por parte. Empezando por la búsqueda..."
+- **GUARD**: Vista general, rápida: no explicar los paneles aquí, vienen en las siguientes diapositivas. Mencionar de paso el registro por correo: guardar datasets pide un correo porque las actualizaciones necesitan a dónde llegar.
 -->
 
 ---
 title: Buscar una ciudad
+section: Un tablero de ciudad
 ---
 
 <Shot src="/captures/search-mexico.jpeg" :x="330" :y="0" :w="512" :h="320" :vw="1600" :vh="1000" />
@@ -256,30 +156,12 @@ title: Buscar una ciudad
 <!--
 - **BEAT**: Para encontrar una ciudad usamos Nominatim, el buscador de OSM. Cada resultado es un límite administrativo de OSM: ciudad, estado o país. Pedimos también sus etiquetas extra, y de ahí sale la población: es la etiqueta `population` del propio límite en OSM. Si la etiqueta no existe, no se muestra.
 - **CUES**: Nominatim = buscador de OSM · resultado = relación de límite administrativo · «México»: la ciudad, el estado, el país · población = etiqueta `population`, vía extratags · estado y país vienen de la dirección del resultado · un resultado por lugar: antes París salía dos veces
-- **BRIDGE**: "Volviendo a los datos: fluyen de forma perezosa..."
+- **BRIDGE**: "Al elegir un dataset, se abre su panel..."
 - **GUARD**: No prometer población en todas las ciudades: solo aparece si está etiquetada en OSM. Si preguntan: hay que escribir el nombre casi completo, Nominatim no está hecho para autocompletar.
 -->
 
 ---
-
-<div class="statement">
-
-# Perezoso por defecto
-
-<div class="sub">Solo los datasets que alguien sigue se actualizan a diario.</div>
-
-</div>
-
-<!--
-- **BEAT**: La parte perezosa: al abrir la página de un dataset, se consulta una sola vez. Guardarlo es lo que lo mantiene actualizado. La atención decide qué se consulta, porque monitorear todo el planeta es inviable.
-- **CUES**: abrir una página, se consulta una vez · guardar = actualización diaria · la atención decide · todo el planeta, inviable
-- **BRIDGE**: "Y estos datasets se pueden observar en un panel..."
-- **GUARD**: Esto responde la pregunta silenciosa de la sala: "¿¡consultan todo OSM a diario!?". Aterrizarlo rápido, y luego las pantallas.
--->
-
----
 title: El panel del dataset
-section: Un tablero de ciudad
 ---
 
 <Shot src="/captures/cdmx-bus-stops.jpeg" :vw="1600" :vh="1100" />
@@ -287,7 +169,7 @@ section: Un tablero de ciudad
 <div class="shot-cap">El panel del dataset: una página para cada dataset en cada ciudad.</div>
 
 <!--
-- **BEAT**: De aquí en adelante todo son pantallas reales, con la Ciudad de México como ejemplo: paradas de autobús. El panel: ciudad, dataset, categoría, última edición, última actualización. Todo en una página.
+- **BEAT**: Las mismas pantallas de la demo, ahora una por una, con la Ciudad de México como ejemplo: paradas de autobús. El panel: ciudad, dataset, categoría, última edición, última actualización. Todo en una página.
 - **CUES**: pantallas reales, CDMX · paradas de autobús · editado hace días · actualizado hace segundos · mapa al lado
 - **BRIDGE**: "Empezando por lo que realmente hay en los datos..."
 - **GUARD**: Esta es la página completa. Las siguientes diapositivas solo hacen zoom en ella. Decirlo prepara el recorrido.
@@ -428,8 +310,143 @@ title: La categoría de transporte
 <!--
 - **BEAT**: La página de la Ciudad de México, filtrada por transporte: 26 datasets, desde accesos de metro hasta corredores de autobús, cada uno con su propia página como las que acabamos de ver.
 - **CUES**: 22 categorías en la barra lateral · solo transporte: 26 datasets · etiquetas visibles en cada tarjeta
-- **BRIDGE**: "Y detrás de cada una de estas tarjetas no hay más que esto..."
+- **BRIDGE**: "¿Y cómo se compara con lo que ya existe? Armé una tabla, no exhaustiva..."
 - **GUARD**: No leer la cuadrícula en voz alta. Señalar dos o tres tarjetas y seguir.
+-->
+
+---
+
+# Comparación con otras herramientas
+
+<div class="table-card">
+
+| Herramienta | Público | Actualización | Análisis integrado |
+| --- | --- | --- | --- |
+| HOT Export Tool | Equipos SIG y humanitarios | Exportación bajo demanda | No |
+| Overpass Turbo / QuickOSM | Usuarios avanzados | Consulta en vivo | No |
+| ohsome | Investigadores | Indicadores históricos | Sí |
+| Geofabrik / BBBike | Desarrolladores | Extractos diarios | No |
+| osmnx / pyrosm | Investigadores | Consulta en vivo | No |
+| MapComplete | Mapeadores | Edición en vivo | No |
+| Overture | Comercial / IA | Publicación mensual | No |
+| **OSM for Cities** | **Público no técnico** | **Diaria + alertas por correo** | **Sí** |
+
+</div>
+
+<!--
+- **BEAT**: La herramienta más cercana es HOT Export Tool. Esto no la reemplaza. La complementa.
+- **CUES**: pregunta recurrente · unidad de trabajo, público, continuidad, análisis · "no soy experto en las demás"
+- **BRIDGE**: "Ahora, para quien quiera saber cómo está hecho. Empecé con algo muy distinto..."
+- **GUARD**: Agradecer a las otras herramientas. Decirlo: puede que me falten cosas, y no las conozco todas a fondo.
+-->
+
+---
+title: v0, un primer intento
+section: Armar un stack
+---
+
+# v0, un primer intento
+
+<div class="lede">Extractos diarios del archivo planet, guardados en un repositorio git.</div>
+
+<div class="img-pair">
+  <img src="/captures/2023-daily-extract.png" alt="" />
+  <img src="/captures/2023-git-repo.png" alt="" />
+</div>
+
+<!--
+- **BEAT**: Mi primer intento, la v0: un proceso diario recortaba cada ciudad brasileña del archivo planet, guardaba todo en un repositorio git, y sobre eso funcionaba un tablero sencillo.
+- **CUES**: extractos diarios, por ciudad · archivo planet · repo git, cities-of/brazil · tablero sencillo · frágil, sin camino hacia una interfaz
+- **BRIDGE**: "Me di cuenta de que podía apoyarme en herramientas que ya existen..."
+- **GUARD**: Decirlo claro: llegó a cubrir todo Brasil, todos los días. El problema era la fragilidad, no la ambición.
+-->
+
+---
+
+<div class="statement">
+
+# ¿Por qué no usar algo que ya existe?
+
+<div class="sub">Overpass ya resuelve muy bien las consultas a OSM. El esfuerzo podía dedicarse a la usabilidad.</div>
+
+</div>
+
+<!--
+- **BEAT**: La reescritura empezó con una pregunta: ¿por qué mantener mi propio pipeline si Overpass ya resuelve muy bien las consultas a OSM? Que Overpass haga las consultas y que el esfuerzo vaya a la usabilidad.
+- **CUES**: no reinventar la rueda · Overpass hace las consultas · el esfuerzo va a la usabilidad
+- **BRIDGE**: "Entonces el stack hoy es simple..."
+- **GUARD**: Reconocer a Overpass con calidez.
+-->
+
+---
+
+<div class="diagram">
+  <img class="diagram-svg" src="/v1-data-flow.svg" alt="Los datos de OSM fluyen por diffs por minuto hacia Overpass, luego mediante actualizaciones diarias hacia PostgreSQL, y de ahí al navegador y al correo del usuario" />
+</div>
+
+<div class="corner-copy">
+
+# El flujo renovado
+
+<div class="lede">Las herramientas existentes hacen el trabajo pesado: los datos de OSM pasan por Overpass y PostgreSQL hasta el navegador.</div>
+
+</div>
+
+<style>
+/* The drawing is heavy top-right and empty bottom-left; title and copy sit in
+   that empty corner, aligned to the layout padding. */
+.corner-copy {
+  position: absolute;
+  left: 3.5rem;
+  bottom: 4.5rem;
+}
+.corner-copy .lede {
+  margin-top: 1rem;
+}
+.diagram {
+  height: 100%;
+}
+</style>
+
+<!--
+- **BEAT**: El flujo renovado: OSM se replica cada minuto en una instancia dedicada de Overpass. Un cron actualiza los datasets existentes en PostgreSQL; otro envía a los usuarios un reporte por correo cuando sus datasets cambian. La aplicación web muestra todo en el navegador.
+- **CUES**: replicación por minuto · Overpass dedicado, los públicos están saturados · cron de actualización de datasets · cron de reportes por correo · ambos leen/escriben en PostgreSQL
+- **BRIDGE**: "¿Por qué una instancia propia? Porque Overpass tiene mala fama..."
+- **GUARD**: Mantenerlo general. Nada de detalle de arquitectura; la sala no lo necesita.
+-->
+
+---
+
+<div class="statement">
+
+# ¿Overpass es poco confiable?
+
+<div class="sub">La mala fama viene sobre todo de los servidores públicos saturados. Con una instancia propia, el mismo software responde bien.</div>
+
+</div>
+
+<!--
+- **BEAT**: Mucha gente cree que Overpass es inestable: errores 429, timeouts, consultas que fallan. Casi siempre es el servidor público, que recibe alrededor de un millón de consultas por día y hoy está por encima de su capacidad, en gran parte por bots. Nuestra instancia dedicada está casi ociosa: sin errores, la mayoría de las respuestas en menos de un segundo, datos con un minuto de retraso.
+- **CUES**: 429 y 504 = política de carga, no bugs · servidor público: ~1M consultas/día, la wiki dice "no esperes alta confiabilidad" · el manual recomienda instancia propia a usuarios intensivos · la nuestra: CPU ~99% ociosa, cero 429/504, p95 < 1 s, ~1 min de retraso
+- **BRIDGE**: "Y no se consulta todo, todo el tiempo..."
+- **GUARD**: Decir "sobre todo", no "nunca es el software": hay bugs reales (memoria con `[date]`, `meta` lento). Las cifras propias son de los logs recientes, no un SLA. Sin specs del servidor. Agradecer a quienes operan las instancias públicas, no culparlos. Si preguntan: usamos la versión estándar 0.7.62, todas nuestras consultas piden `meta` y aun así responden en menos de un segundo; desde 2025 casi todo el trabajo del mantenedor es contra bots (cuotas, listas negras).
+-->
+
+---
+
+<div class="statement">
+
+# Perezoso por defecto
+
+<div class="sub">Solo los datasets que alguien sigue se actualizan a diario.</div>
+
+</div>
+
+<!--
+- **BEAT**: La parte perezosa: al abrir la página de un dataset, se consulta una sola vez. Guardarlo es lo que lo mantiene actualizado. La atención decide qué se consulta, porque monitorear todo el planeta es inviable.
+- **CUES**: abrir una página, se consulta una vez · guardar = actualización diaria · la atención decide · todo el planeta, inviable
+- **BRIDGE**: "¿Y qué se consulta exactamente? Detrás de cada tarjeta no hay más que esto..."
+- **GUARD**: Esto responde la pregunta silenciosa de la sala: "¿¡consultan todo OSM a diario!?". Aterrizarlo rápido y seguir.
 -->
 
 ---
@@ -502,25 +519,8 @@ out geom meta;</pre>
 <!--
 - **BEAT**: Cada plantilla es una línea de YAML, compilada en una consulta de Overpass. Solo cambia el ID de la relación de la ciudad.
 - **CUES**: una línea de YAML · rel 17483459 = Ciudad de México · la misma consulta, cualquier ciudad · node+way+relation a propósito: muestra la mezcla de geometrías
-- **BRIDGE**: "Eso es todo en diapositivas; ahora veámoslo en movimiento..."
-- **GUARD**: Ser honesto: todavía no se puede copiar esta consulta desde la interfaz. Es una de las ideas pendientes del proyecto.
--->
-
----
-section: Demo
----
-
-<div class="statement centered">
-
-# Demo
-
-</div>
-
-<!--
-- **BEAT**: Un recorrido grabado, narrado en vivo: abrir osmforcities.org sin iniciar sesión → los mapas destacados en la portada → la página Explorar y lo que lista → buscar Ciudad de México → paradas de autobús → las mismas funciones que acabamos de ver, esta vez en movimiento.
-- **CUES**: sin iniciar sesión, navegador anónimo · mapas destacados · página Explorar · buscar la ciudad · paradas de autobús · pasada rápida por las funciones del panel
 - **BRIDGE**: "Así funciona hoy. Lo que viene resuelve su límite más grande..."
-- **GUARD**: Repetir el recorrido de capturas está bien: esta vez es lo real en movimiento, y rápido. Mencionar de paso el registro por correo: crear datasets pide un correo porque las actualizaciones necesitan a dónde llegar.
+- **GUARD**: Ser honesto: todavía no se puede copiar esta consulta desde la interfaz. Es una de las ideas pendientes del proyecto.
 -->
 
 ---
