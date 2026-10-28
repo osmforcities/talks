@@ -164,12 +164,12 @@ section: Explorar datos urbanos
 -->
 
 ---
-section: Demo
+section: Recorrido
 ---
 
 <div class="statement centered">
 
-# Demo en vivo
+# Un recorrido por la plataforma
 
 <div class="sub">Ciudad de México: paradas de autobús.</div>
 
@@ -178,15 +178,29 @@ section: Demo
 <!--
 - **BEAT**: En vivo, en el navegador. Portada → buscar "Ciudad de México" → paradas de autobús → panel → mapa → colorear por silla de ruedas.
 - **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. página de la ciudad, filtrar transporte, paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris
-- **SALIDA**: Demo bien → volver al deck, `g` 15 Enter (¿Qué más?), saltar 6-14. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-14 son la misma demo en capturas.
+- **SALIDA**: Demo bien → volver al deck, `g` 16 Enter (¿Qué más?), saltar 6-15. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-15 son la misma demo en capturas.
 - **BACKUP**: si la búsqueda falla, pegar la URL: osmforcities.org/es/area/17483459/dataset/bus-stops
 - **BRIDGE**: "Entonces, ¿qué más se puede consultar?..." (o, si falló: "Lo mismo, en capturas. Empezando por la búsqueda...")
 - **GUARD**: Vista general, rápida: el panel se lee, no se explica fila por fila. Mencionar de paso el correo: guardar pide un correo porque las actualizaciones necesitan a dónde llegar.
 -->
 
 ---
+title: La portada
+---
+
+<Shot src="/captures/home-es.jpeg" :vw="1600" :vh="1000" />
+
+<div class="shot-cap">La portada: un mapa destacado y, arriba, la búsqueda para encontrar tu ciudad.</div>
+
+<!--
+- **BEAT**: La portada de osmforcities.org, sin iniciar sesión. Un mapa destacado, que va cambiando, y arriba la búsqueda.
+- **CUES**: sin cuenta para explorar · mapa destacado, con su tarjeta · la búsqueda arriba
+- **BRIDGE**: "Busquemos la Ciudad de México..."
+- **GUARD**: Rápido. Es la puerta de entrada, no hay nada que explicar.
+-->
+
+---
 title: Buscar una ciudad
-section: Un tablero de ciudad
 ---
 
 <Shot src="/captures/search-mexico.jpeg" :x="330" :y="0" :w="512" :h="320" :vw="1600" :vh="1000" />
