@@ -177,8 +177,8 @@ section: Demo
 
 <!--
 - **BEAT**: En vivo, en el navegador. Portada → buscar "Ciudad de México" → paradas de autobús → panel → mapa → colorear por silla de ruedas.
-- **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris
-- **SALIDA**: Demo bien → volver al deck, `g` 14 Enter (¿Qué más?), saltar 6-13. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-13 son la misma demo en capturas.
+- **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. página de la ciudad, filtrar transporte, paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris
+- **SALIDA**: Demo bien → volver al deck, `g` 15 Enter (¿Qué más?), saltar 6-14. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-14 son la misma demo en capturas.
 - **BACKUP**: si la búsqueda falla, pegar la URL: osmforcities.org/es/area/17483459/dataset/bus-stops
 - **BRIDGE**: "Entonces, ¿qué más se puede consultar?..." (o, si falló: "Lo mismo, en capturas. Empezando por la búsqueda...")
 - **GUARD**: Vista general, rápida: el panel se lee, no se explica fila por fila. Mencionar de paso el correo: guardar pide un correo porque las actualizaciones necesitan a dónde llegar.
@@ -196,8 +196,23 @@ section: Un tablero de ciudad
 <!--
 - **BEAT**: Para encontrar una ciudad usamos Nominatim, el buscador de OSM. Cada resultado es un límite administrativo de OSM: ciudad, estado o país. Pedimos también sus etiquetas extra, y de ahí sale la población: es la etiqueta `population` del propio límite en OSM. Si la etiqueta no existe, no se muestra.
 - **CUES**: Nominatim = buscador de OSM · resultado = relación de límite administrativo · «México»: la ciudad, el estado, el país · población = etiqueta `population`, vía extratags · estado y país vienen de la dirección del resultado · un resultado por lugar: antes París salía dos veces
-- **BRIDGE**: "Al elegir un dataset, se abre su panel..."
+- **BRIDGE**: "Se abre la página de la ciudad, con sus datasets por categoría..."
 - **GUARD**: No prometer población en todas las ciudades: solo aparece si está etiquetada en OSM. Si preguntan: hay que escribir el nombre casi completo, Nominatim no está hecho para autocompletar.
+-->
+
+---
+title: La página de la ciudad
+---
+
+<Shot src="/captures/cdmx-area-transport.jpeg" :vw="1600" :vh="1000" />
+
+<div class="shot-cap">La página de la Ciudad de México, filtrada por la categoría de transporte: 26 datasets.</div>
+
+<!--
+- **BEAT**: La página de la Ciudad de México: todos sus datasets, por categoría. Filtrando por transporte: 26, desde accesos de metro hasta corredores de autobús. Elijo paradas de autobús.
+- **CUES**: 22 categorías en la barra lateral · solo transporte: 26 datasets · cada tarjeta: elementos, mapeadores, última edición · paradas de autobús, la primera
+- **BRIDGE**: "Al elegir un dataset, se abre su panel..."
+- **GUARD**: No leer la cuadrícula en voz alta. Señalar la tarjeta de paradas y seguir.
 -->
 
 ---
@@ -320,23 +335,8 @@ section: Más sobre la plataforma
 <!--
 - **BEAT**: Paradas de autobús fue un ejemplo. Más de 200 plantillas basadas en la wiki funcionan igual, organizadas por categoría, y evolucionan a la par de cómo mapea la comunidad.
 - **CUES**: dos ejemplos hasta ahora · escuelas, hospitales, semáforos · sigue la wiki · el esquema sigue evolucionando
-- **BRIDGE**: "De vuelta en la página de la Ciudad de México, filtrando por categoría..."
-- **GUARD**: Advertirlo en voz alta: que una plantilla esté listada no significa que la ciudad tenga esos datos, por ejemplo refugios de montaña en ciudades del desierto.
--->
-
----
-title: La categoría de transporte
----
-
-<Shot src="/captures/cdmx-area-transport.jpeg" :vw="1600" :vh="1000" />
-
-<div class="shot-cap">La página de la Ciudad de México, filtrada por la categoría de transporte: 26 datasets.</div>
-
-<!--
-- **BEAT**: La página de la Ciudad de México, filtrada por transporte: 26 datasets, desde accesos de metro hasta corredores de autobús, cada uno con su propia página como las que acabamos de ver.
-- **CUES**: 22 categorías en la barra lateral · solo transporte: 26 datasets · etiquetas visibles en cada tarjeta
 - **BRIDGE**: "¿Y cómo se compara con lo que ya existe? Armé una tabla, no exhaustiva..."
-- **GUARD**: No leer la cuadrícula en voz alta. Señalar dos o tres tarjetas y seguir.
+- **GUARD**: Advertirlo en voz alta: que una plantilla esté listada no significa que la ciudad tenga esos datos, por ejemplo refugios de montaña en ciudades del desierto.
 -->
 
 ---
