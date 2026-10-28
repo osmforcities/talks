@@ -178,9 +178,9 @@ section: Recorrido
 <!--
 - **BEAT**: En vivo, en el navegador. Portada → buscar "Ciudad de México" → paradas de autobús → panel → mapa → colorear por silla de ruedas.
 - **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. página de la ciudad, filtrar transporte, paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris
-- **SALIDA**: Demo bien → volver al deck, `g` 16 Enter (¿Qué más?), saltar 6-15. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-15 son la misma demo en capturas.
+- **SALIDA**: Demo bien → volver al deck, `g` 16 Enter (Plantillas para planificar), saltar 6-15. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-15 son la misma demo en capturas.
 - **BACKUP**: si la búsqueda falla, pegar la URL: osmforcities.org/es/area/17483459/dataset/bus-stops
-- **BRIDGE**: "Entonces, ¿qué más se puede consultar?..." (o, si falló: "Lo mismo, en capturas. Empezando por la búsqueda...")
+- **BRIDGE**: "Paradas de autobús es una plantilla entre más de 200..." (o, si falló: "Lo mismo, en capturas. Empezando por la búsqueda...")
 - **GUARD**: Vista general, rápida: el panel se lee, no se explica fila por fila. Mencionar de paso el correo: guardar pide un correo porque las actualizaciones necesitan a dónde llegar.
 -->
 
@@ -330,27 +330,77 @@ title: Paradas según acceso en silla de ruedas
 <!--
 - **BEAT**: El mismo mapa, coloreado según acceso en silla de ruedas. Casi todo es gris: de 1,861 paradas, solo unas 40 tienen el dato.
 - **CUES**: sí 34 · no 5 · limitado 2 · sin dato 1,830 · cobertura 2% · en París era 79%
-- **BRIDGE**: "Entonces, ¿qué más se puede consultar?..."
+- **BRIDGE**: "Paradas de autobús es una plantilla entre más de 200..."
 - **GUARD**: Presentarlo como invitación a mapear, nunca como falla de los mapeadores. El gris es un mapa de trabajo pendiente: una tarde de mapatón lo cambia.
 -->
 
 ---
-section: Más sobre la plataforma
+section: Para qué sirve
 ---
 
 <div class="statement">
 
-# ¿Qué más se puede consultar?
+# Plantillas para planificar
 
-<div class="sub">Más de 200 plantillas basadas en la wiki de OSM.</div>
+<div class="sub">Más de 200 plantillas, cada una responde una pregunta.</div>
+<div v-click class="sub use-step"><strong>Infraestructura:</strong> ¿las aceras y las ciclovías tienen superficie e iluminación?</div>
+<div v-click class="sub use-step"><strong>Servicios:</strong> ¿dónde están las escuelas, clínicas y farmacias, y dónde faltan?</div>
+<div v-click class="sub use-step"><strong>Mapeo comunitario:</strong> ¿qué falta mapear? Una tarea para un mapatón.</div>
+<div v-click class="sub use-step"><strong>Cambios:</strong> guardar un dataset y recibir por correo lo que cambia.</div>
 
 </div>
 
+<style>
+.statement .use-step {
+  margin-top: 0.75rem;
+}
+.statement .sub {
+  max-width: 60ch;
+  text-wrap: balance;
+}
+.statement .use-step strong {
+  color: var(--ofc-accent);
+}
+</style>
+
 <!--
-- **BEAT**: Paradas de autobús fue un ejemplo. Más de 200 plantillas basadas en la wiki funcionan igual, organizadas por categoría, y evolucionan a la par de cómo mapea la comunidad.
-- **CUES**: dos ejemplos hasta ahora · escuelas, hospitales, semáforos · sigue la wiki · el esquema sigue evolucionando
+- **BEAT**: Paradas de autobús es una plantilla entre más de 200, todas basadas en la wiki. Cada una responde una pregunta concreta sobre la ciudad. Son los cuatro usos que propuse en el resumen de la charla.
+- **CUES**: [click] infraestructura: aceras, ciclovías, calles, con superficie e iluminación · [click] servicios: escuelas, clínicas, farmacias, dónde hay y dónde no · [click] mapeo comunitario: el panel de etiquetas dice qué falta, el 2% de silla de ruedas · [click] cambios: guardar y recibir el correo
+- **BRIDGE**: "Y no es solo planificación urbana..."
+- **GUARD**: La plataforma muestra dónde están las cosas, no calcula distancias ni cobertura: decir "en el mapa se ve dónde faltan". Advertir que una plantilla listada no garantiza datos en la ciudad, por ejemplo refugios de montaña en ciudades del desierto.
+-->
+
+---
+
+<div class="statement">
+
+# Más allá de la planificación urbana
+
+<div class="sub">Los mismos datos sirven para otras preguntas.</div>
+<div v-click class="sub use-step"><strong>Salud pública:</strong> en un brote, los edificios muestran dónde vive la gente, y las clínicas y farmacias, dónde atenderla.</div>
+<div v-click class="sub use-step"><strong>Emergencias:</strong> estaciones de bomberos, ambulancias, hidrantes. Próximamente: puntos de reunión, sirenas, refugios.</div>
+<div v-click class="sub use-step"><strong>Investigación y periodismo:</strong> comparar ciudades, seguir aperturas y cierres.</div>
+
+</div>
+
+<style>
+.statement .use-step {
+  margin-top: 0.75rem;
+}
+.statement .sub {
+  max-width: 60ch;
+  text-wrap: balance;
+}
+.statement .use-step strong {
+  color: var(--ofc-accent);
+}
+</style>
+
+<!--
+- **BEAT**: Yo empecé pensando en planificación urbana, pero en París la gente preguntó por otros usos que no había imaginado. Los mismos datos responden otras preguntas.
+- **CUES**: [click] salud pública: ayer, charla sobre DHIS2, la plataforma de los ministerios de salud para seguir epidemias, con un ejemplo de Santa Lucía · los edificios dicen dónde vive la gente, campañas casa por casa · Santa Lucía tiene 68,500 edificios en OSM · clínicas, puestos de salud, farmacias, laboratorios · [click] emergencias: bomberos, ambulancias, hidrantes, desfibriladores; vienen puntos de reunión, sirenas, refugios · [click] investigación y periodismo: comparar ciudades, aperturas y cierres
 - **BRIDGE**: "¿Y cómo se compara con lo que ya existe? Armé una tabla, no exhaustiva..."
-- **GUARD**: Advertirlo en voz alta: que una plantilla esté listada no significa que la ciudad tenga esos datos, por ejemplo refugios de montaña en ciudades del desierto.
+- **GUARD**: Los edificios llegan con las vector tiles, que muestro al final: no decir que ya están disponibles. No decir que DHIS2 usa OSM for Cities: solo que el caso de uso es el mismo. Las plantillas de puntos de reunión, sirenas y refugios todavía no existen: decir "próximamente". Si preguntan por daños después de un sismo o una inundación: está planeado sobre los edificios, todavía no.
 -->
 
 ---
