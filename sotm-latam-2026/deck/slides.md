@@ -663,36 +663,8 @@ title: Edificios de Santa Lucía
 <!--
 - **BEAT**: Santa Lucía, la del ejemplo de DHIS2: 68,500 edificios, desde vector tiles, con el mismo panel de siempre. Coloreados por tipo: casas, escuelas, iglesias, comercios. Es lo que pedía la charla de salud: dónde vive la gente.
 - **CUES**: 68.5k edificios · 915 mapeadores · por tipo: casas 13 mil, escuelas, iglesias · "Sí" = building=yes, sin tipo: 54 mil, trabajo para mapear
-- **BRIDGE**: "¿Y cómo se compara con lo que ya existe? Armé una tabla, no exhaustiva..."
-- **GUARD**: Captura de la versión en desarrollo, no de producción. Decir "próximamente", sin fecha. Si preguntan cuándo: "en las próximas semanas, ya está en pruebas". Si preguntan por ciudades más grandes: los datasets grandes se generan en segundo plano y la app avisa por correo cuando el mapa está listo; São Paulo, con 2.1 millones de edificios, funciona. Lo que no cabe se rechaza con un mensaje claro. Ciudades enteras sí; áreas metropolitanas o estados no son el objetivo.
--->
-
----
-section: Comparación
----
-
-# Comparación con otras herramientas
-
-<div class="table-card">
-
-| Herramienta | Público | Actualización | Análisis integrado |
-| --- | --- | --- | --- |
-| HOT Export Tool | Equipos SIG y humanitarios | Exportación bajo demanda | No |
-| Overpass Turbo / QuickOSM | Usuarios avanzados | Consulta en vivo | No |
-| ohsome | Investigadores | Indicadores históricos | Sí |
-| Geofabrik / BBBike | Desarrolladores | Extractos diarios | No |
-| osmnx / pyrosm | Investigadores | Consulta en vivo | No |
-| MapComplete | Mapeadores | Edición en vivo | No |
-| Overture | Comercial / IA | Publicación mensual | No |
-| **OSM for Cities** | **Público no técnico** | **Diaria + alertas por correo** | **Sí** |
-
-</div>
-
-<!--
-- **BEAT**: La herramienta más cercana es HOT Export Tool. Esto no la reemplaza. La complementa.
-- **CUES**: pregunta recurrente · unidad de trabajo, público, continuidad, análisis · "no soy experto en las demás"
 - **BRIDGE**: "Y aquí es donde necesito su ayuda..."
-- **GUARD**: Agradecer a las otras herramientas. Decirlo: puede que me falten cosas, y no las conozco todas a fondo.
+- **GUARD**: Captura de la versión en desarrollo, no de producción. Decir "próximamente", sin fecha. Si preguntan cuándo: "en las próximas semanas, ya está en pruebas". Si preguntan por ciudades más grandes: los datasets grandes se generan en segundo plano y la app avisa por correo cuando el mapa está listo; São Paulo, con 2.1 millones de edificios, funciona. Lo que no cabe se rechaza con un mensaje claro. Ciudades enteras sí; áreas metropolitanas o estados no son el objetivo.
 -->
 
 ---
@@ -734,7 +706,35 @@ section: Preguntas y comentarios
 
 <!--
 - **BEAT**: La invitación, y luego el agradecimiento: pruébenlo, envíen retroalimentación, sobre todo quienes trabajan en planificación urbana local o equipamientos públicos. Si trabajas en un municipio: busca tu ciudad hoy y guarda un dataset. Luego pasar la palabra: "¿Qué preguntas tienen?"
-- **CUES**: resolver un problema real · planificación urbana, equipamientos públicos · código abierto, GitHub · el cierre queda en pantalla durante todas las preguntas · coincidencia con HOT = descarga GeoJSON temática, y ahí termina · volver a la tabla comparativa si hace falta
+- **CUES**: resolver un problema real · planificación urbana, equipamientos públicos · código abierto, GitHub · el cierre queda en pantalla durante todas las preguntas · coincidencia con HOT = descarga GeoJSON temática, y ahí termina · si preguntan por otras herramientas: HOT Export Tool es la más cercana, esto no la reemplaza, la complementa; → una vez muestra la tabla del anexo
 - **BRIDGE**: ninguno. Este es el final.
 - **GUARD**: Esta es la invitación: bajar el ritmo, levantar la mirada. Nunca "¿alguna pregunta?": invita al silencio. Ser generoso con todos los demás proyectos.
+-->
+
+---
+section: Anexo
+---
+
+# Comparación con otras herramientas
+
+<div class="table-card">
+
+| Herramienta | Público | Actualización | Análisis integrado |
+| --- | --- | --- | --- |
+| HOT Export Tool | Equipos SIG y humanitarios | Exportación bajo demanda | No |
+| Overpass Turbo / QuickOSM | Usuarios avanzados | Consulta en vivo | No |
+| ohsome | Investigadores | Indicadores históricos | Sí |
+| Geofabrik / BBBike | Desarrolladores | Extractos diarios | No |
+| osmnx / pyrosm | Investigadores | Consulta en vivo | No |
+| MapComplete | Mapeadores | Edición en vivo | No |
+| Overture | Comercial / IA | Publicación mensual | No |
+| **OSM for Cities** | **Público no técnico** | **Diaria + alertas por correo** | **Sí** |
+
+</div>
+
+<!--
+- **BEAT**: Anexo, solo si preguntan. La herramienta más cercana es HOT Export Tool. Esto no la reemplaza. La complementa.
+- **CUES**: unidad de trabajo, público, continuidad, análisis · "no soy experto en las demás"
+- **BRIDGE**: ninguno. Volver con ← al cierre.
+- **GUARD**: Agradecer a las otras herramientas. Decirlo: puede que me falten cosas, y no las conozco todas a fondo.
 -->
