@@ -36,7 +36,4 @@ First PDF export on a new machine also needs `pnpm exec playwright install chrom
 
 ## Publishing
 
-Not published yet. The Pages workflow builds only the Paris deck. Publishing this one needs
-its own build step in [`.github/workflows/pages.yml`](../../.github/workflows/pages.yml)
-with `--base /talks/sotm-latam-2026/` and `--without-notes`. `_config.yml` already
-excludes this directory from Jekyll.
+Built by [`.github/workflows/pages.yml`](../../.github/workflows/pages.yml) with `--base /talks/sotm-latam-2026/` and `--without-notes`, deployed from `main` to <https://osmforcities.github.io/talks/sotm-latam-2026/>. `_config.yml` excludes this directory from Jekyll.

@@ -17,6 +17,16 @@ online.
 ## 2026
 
 <article class="talk">
+  <p class="where">State of the Map Latam · Ciudad de México, 27–29 October</p>
+  <h3 lang="es">OSM for Cities: Datos abiertos para planificación urbana en América Latina</h3>
+  <p class="links">
+    <a href="sotm-latam-2026/" target="_blank" rel="noopener"
+       aria-label="Slides for OSM for Cities: Datos abiertos para planificación urbana en América Latina, in Spanish, opens in a new tab">Slides</a>
+    <span class="meta">Spanish</span>
+  </p>
+</article>
+
+<article class="talk">
   <p class="where">
     <a href="https://2026.stateofthemap.org/" target="_blank" rel="noopener"
        aria-label="State of the Map 2026 conference website, opens in a new tab">State of the Map</a>
