@@ -96,17 +96,36 @@ section: Explorar datos urbanos
 
 <div class="statement anchor-low">
 
-# Hoy, esos datos ya están en OpenStreetMap
+# Llega OpenStreetMap
 
-<div class="sub">¿Los puede encontrar una oficina municipal sin equipo SIG?</div>
+<div class="sub">2008: lo descubrí y me di cuenta de su potencial. Todavía era joven, con pocas herramientas.</div>
+<div v-click class="sub story-step">Hoy el ecosistema creció muchísimo.</div>
+<div v-click class="sub story-step">Pero para alguien sin conocimientos técnicos, encontrar y seguir los datos de su ciudad todavía es difícil.</div>
 
 </div>
 
+<style>
+/* Same stepped story as the São Paulo slide. */
+.statement .story-step {
+  margin-top: 0.75rem;
+}
+.statement .sub {
+  max-width: 60ch;
+  /* Two-line steps split evenly instead of leaving one word on the second line. */
+  text-wrap: balance;
+}
+</style>
+
 <!--
-- **BEAT**: Hoy OpenStreetMap es un lugar común: lo que alguien mapea una vez, cualquiera lo puede reutilizar. Esas vías ya están ahí, y mucho más. Pero ¿una oficina municipal sin equipo SIG puede encontrarlas? Hoy todavía hace falta conocimiento técnico.
-- **CUES**: OSM = lugar común, mapear una vez, reutilizar muchas · los datos ya existen · la pregunta, en voz alta · hoy exige conocimiento técnico
+- **BEAT**: En 2008 descubrí OpenStreetMap y me di cuenta de su potencial: un mapa común, donde lo que alguien mapea una vez, cualquiera lo puede reutilizar. Justo lo que faltó en São Paulo. Pero todavía era joven, con pocas herramientas.
+
+[click] Hoy el ecosistema creció muchísimo: hay herramientas para casi todo.
+
+[click] Pero para alguien sin conocimientos técnicos, como una oficina municipal sin equipo SIG, encontrar los datos de su ciudad y seguir sus cambios todavía es difícil. La brecha ya no son los datos, es el acceso.
+
+- **CUES**: 2008, lo descubrí · potencial: mapear una vez, reutilizar muchas · lo que faltó en São Paulo · joven, pocas herramientas → hoy, ecosistema rico → sin conocimientos técnicos: encontrar y seguir, todavía difícil
 - **BRIDGE**: "Les muestro cómo se ve hoy, sin código..."
-- **GUARD**: No criticar las otras herramientas: la brecha es de público, no de calidad. Las herramientas se nombran después, en la tabla comparativa.
+- **GUARD**: Primero elogiar las herramientas: la brecha es de público, no de calidad. Las herramientas se nombran después, en la tabla comparativa. "Seguir" es la palabra clave: prepara la demo.
 -->
 
 ---
