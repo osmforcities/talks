@@ -63,32 +63,31 @@ section: Datos desperdiciados
 
 # São Paulo, 2003
 
-<div class="sub">Un anillo vial para sacar a los camiones de carga de las calles de la ciudad.</div>
+<div class="sub">Un anillo vial para sacar los camiones de la ciudad.</div>
+<div v-click class="sub story-step">Avenida por avenida: auto, chofer, planilla. Semanas levantando datos.</div>
+<div v-click class="sub story-step">Y luego, un informe: los datos quedaron en un PDF. Nadie los volvió a usar.</div>
 
 </div>
 
-<!--
-- **BEAT**: En 2003 levanté estas vías a mano. Los datos quedaron enterrados en un informe.
-- **CUES**: practicante, consultora de transporte · anillo vial, camiones fuera de la ciudad · auto + chofer, avenida por avenida
-- **BRIDGE**: "Años después llegué a OpenStreetMap, y vi otra posibilidad..."
-- **GUARD**: Solo plantear la escena; el remate viene en la siguiente tarjeta. Contarlo con calma.
--->
-
----
-
-<div class="statement anchor-low">
-
-# Cuando llegué a OpenStreetMap
-
-<div class="sub">Un lugar común donde las instituciones públicas sin equipo SIG propio podían compartir y reutilizar datos.</div>
-
-</div>
+<style>
+/* Story lines read as one paragraph revealed in steps, not three separate subs. */
+.statement .story-step {
+  margin-top: 0.75rem;
+  /* Wider than the base 48ch so each step stays on one line. */
+  max-width: 60ch;
+}
+</style>
 
 <!--
-- **BEAT**: Cuando llegué a OSM vi eso: un lugar común. Lo que una consultora levanta para un proyecto, otra institución lo puede reutilizar, en vez de pagar para levantarlo de nuevo. Sobre todo para instituciones que no tienen un equipo SIG propio.
-- **CUES**: datos levantados una vez, reutilizados muchas · en vez de quedar en un informe · instituciones sin equipo SIG propio · es uno de los aspectos de OSM, no el único
-- **BRIDGE**: "Hoy OSM ya es maduro. Pero la pregunta sigue..."
-- **GUARD**: Tono neutral: hablar de capacidad técnica, no de presupuesto ni de política.
+- **BEAT**: En 2003 era practicante en una consultora de transporte. El proyecto: un anillo vial para sacar los camiones de carga de las calles de São Paulo. Mi trabajo era levantar las vías por donde podía pasar.
+
+[click] Un auto, un chofer, y yo con una planilla. Recorríamos avenida por avenida, anotando carriles, anchos, restricciones. Semanas de trabajo.
+
+[click] Todo terminó en un informe. Los datos quedaron dentro de un PDF, y nadie los volvió a usar. La próxima consultora que necesitara esas vías tendría que salir a levantarlas de nuevo.
+
+- **CUES**: practicante, consultora de transporte · anillo vial · yo levantaba las vías → auto + chofer, planilla, avenida por avenida, semanas → informe, PDF, nadie los volvió a usar
+- **BRIDGE**: "Hoy la historia es distinta..."
+- **GUARD**: Contarlo con calma: es la historia que sostiene toda la charla. Detalles concretos, sin exagerar. Tono neutral: el trabajo se perdió, no culpar a nadie, nada de presupuesto ni de política. Pausa después de "nadie los volvió a usar".
 -->
 
 ---
@@ -97,34 +96,17 @@ section: Explorar datos urbanos
 
 <div class="statement anchor-low">
 
-# OpenStreetMap, 2026
+# Hoy, esos datos ya están en OpenStreetMap
 
-<div class="sub">¿Cualquier persona puede encontrar los datos de su ciudad?</div>
-
-</div>
-
-<!--
-- **BEAT**: Tercera tarjeta: OSM hoy. Ya es maduro, y los datos están ahí. Pero ¿una persona no técnica puede encontrar los datos de su ciudad?
-- **CUES**: maduro ahora · los datos existen · la pregunta, en voz alta
-- **BRIDGE**: "El ecosistema alrededor de OSM hoy es muy rico..."
-- **GUARD**: Dejar la pregunta en el aire. No responderla todavía.
--->
-
----
-
-<div class="statement">
-
-# Un ecosistema rico, pero una curva de aprendizaje empinada
-
-<div class="sub">Llegar rápido a un dataset todavía exige conocimiento técnico.</div>
+<div class="sub">¿Los puede encontrar una oficina municipal sin equipo SIG?</div>
 
 </div>
 
 <!--
-- **BEAT**: El ecosistema hoy es rico. Pero llegar rápido a un dataset todavía exige conocimiento técnico: preprocesar y filtrar por tu propia área.
-- **CUES**: nombrarlas: HOT Export Tool, Overpass Turbo, ohsome, uMap, MapComplete · preprocesamiento · tu propia área
+- **BEAT**: Hoy OpenStreetMap es un lugar común: lo que alguien mapea una vez, cualquiera lo puede reutilizar. Esas vías ya están ahí, y mucho más. Pero ¿una oficina municipal sin equipo SIG puede encontrarlas? Hoy todavía hace falta conocimiento técnico.
+- **CUES**: OSM = lugar común, mapear una vez, reutilizar muchas · los datos ya existen · la pregunta, en voz alta · hoy exige conocimiento técnico
 - **BRIDGE**: "Les muestro cómo se ve hoy, sin código..."
-- **GUARD**: Primero elogiar las herramientas: la brecha es de público, no de calidad.
+- **GUARD**: No criticar las otras herramientas: la brecha es de público, no de calidad. Las herramientas se nombran después, en la tabla comparativa.
 -->
 
 ---
