@@ -169,15 +169,19 @@ section: Demo
 
 <div class="statement centered">
 
-# Demo
+# Demo en vivo
+
+<div class="sub">Ciudad de México: paradas de autobús.</div>
 
 </div>
 
 <!--
-- **BEAT**: La respuesta a la pregunta, en movimiento. Un recorrido grabado, narrado en vivo: abrir osmforcities.org sin iniciar sesión → los mapas destacados en la portada → la página Explorar y lo que lista → buscar Ciudad de México → paradas de autobús → guardar.
-- **CUES**: sin iniciar sesión, navegador anónimo · mapas destacados · página Explorar · buscar la ciudad · paradas de autobús · guardar
-- **BRIDGE**: "Ahora, con calma, parte por parte. Empezando por la búsqueda..."
-- **GUARD**: Vista general, rápida: no explicar los paneles aquí, vienen en las siguientes diapositivas. Mencionar de paso el registro por correo: guardar datasets pide un correo porque las actualizaciones necesitan a dónde llegar.
+- **BEAT**: En vivo, en el navegador. Portada → buscar "Ciudad de México" → paradas de autobús → panel → mapa → colorear por silla de ruedas.
+- **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris · 7. si sobra tiempo: ciclovías por regularidad
+- **SALIDA**: Demo bien → volver al deck, `g` 15 Enter (¿Qué más?), saltar 6-14. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-14 son la misma demo en capturas.
+- **BACKUP**: si la búsqueda falla, pegar la URL: osmforcities.org/es/area/17483459/dataset/bus-stops
+- **BRIDGE**: "Entonces, ¿qué más se puede consultar?..." (o, si falló: "Lo mismo, en capturas. Empezando por la búsqueda...")
+- **GUARD**: Vista general, rápida: el panel se lee, no se explica fila por fila. Mencionar de paso el correo: guardar pide un correo porque las actualizaciones necesitan a dónde llegar.
 -->
 
 ---
