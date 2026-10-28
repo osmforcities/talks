@@ -439,24 +439,71 @@ section: Cómo funciona
 -->
 
 ---
-title: "v0: solo Brasil"
+title: "Antes: una copia propia del planeta"
 section: Cobertura global
 ---
 
-# v0: solo Brasil
+# Antes: una copia propia del planeta
 
-<div class="lede">Extractos diarios del archivo planet, en un repositorio git. Para todo el planeta, mejor que Overpass haga las consultas.</div>
+<div class="lede">v0 (2023): un planet propio, actualizado por minuto. Cada día, recortar Brasil y cada ciudad. Un GeoJSON por tema, en git.</div>
 
-<div class="img-pair">
-  <img src="/captures/2023-daily-extract.png" alt="" />
-  <img src="/captures/2023-git-repo.png" alt="" />
-</div>
+<img class="v0-shot" src="/captures/2023-git-repo.png" alt="El repositorio cities-of/brazil en git, con el archivo brazil/sp/sao-paulo/library.geojson" />
+
+<style>
+.lede {
+  text-wrap: balance;
+}
+/* Portrait capture: crop to the repo header, path and first lines of GeoJSON. */
+.v0-shot {
+  display: block;
+  width: 640px;
+  height: 430px;
+  margin: 1.5rem auto 0;
+  object-fit: cover;
+  object-position: center 12%;
+  border-radius: 12px;
+}
+</style>
 
 <!--
-- **BEAT**: La v0, de 2023: un proceso diario recortaba cada ciudad brasileña del archivo planet y guardaba todo en un repositorio git, con un tablero sencillo encima. Cubría todo Brasil, todos los días, pero era frágil y no pasaba de un país. Para ir al planeta entero me pregunté: ¿por qué mantener mi propio pipeline si Overpass ya resuelve muy bien las consultas a OSM? Que Overpass consulte, y que el esfuerzo vaya a la usabilidad.
-- **CUES**: extractos diarios, por ciudad · archivo planet · repo git, cities-of/brazil · todo Brasil, todos los días, frágil · ¿por qué no usar algo que ya existe? · Overpass consulta, el esfuerzo va a la usabilidad
+- **BEAT**: La v0, de 2023: mantenía mi propia copia del planeta, actualizada cada minuto. Cada día recortaba Brasil, y de ahí cada ciudad, y guardaba un GeoJSON por tema en un repositorio git. La idea ya estaba: un archivo por ciudad y por tema, y el historial de git mostraba los cambios. Lo que no escalaba era el motor: un pipeline propio, frágil, y solo para un país.
+- **CUES**: planet propio, diffs por minuto · recorte diario: Brasil, luego cada ciudad · brazil/sp/sao-paulo/library.geojson: ciudad + tema · git = historial de cambios · la idea sobrevivió, el motor no
+- **BRIDGE**: "Entonces me pregunté: ¿por qué mantener esto yo?..."
+- **GUARD**: El problema era la fragilidad y la escala, no la ambición.
+-->
+
+---
+
+<div class="statement">
+
+# Ahora: Overpass
+
+<div class="sub">Mantiene el planeta al minuto y responde cualquier consulta, sin un pipeline propio.</div>
+<div v-click class="sub story-step">¿Poco confiable? La mala fama viene sobre todo de los servidores públicos saturados.</div>
+<div v-click class="sub story-step">Con una instancia dedicada, el mismo software responde bien.</div>
+
+</div>
+
+<style>
+.statement .story-step {
+  margin-top: 0.75rem;
+}
+.statement .sub {
+  max-width: 60ch;
+  text-wrap: balance;
+}
+</style>
+
+<!--
+- **BEAT**: ¿Por qué mantener mi propio pipeline si Overpass ya resuelve muy bien las consultas a OSM? Overpass también guarda una copia del planeta actualizada por minuto, pero es software maduro de la comunidad OSM, que indexa los datos y responde cualquier consulta. Que Overpass consulte, y que mi esfuerzo vaya a la usabilidad.
+
+[click] Mucha gente cree que Overpass es inestable: errores 429, timeouts, consultas que fallan. Casi siempre es el servidor público, que recibe alrededor de un millón de consultas por día y hoy está por encima de su capacidad, en gran parte por bots.
+
+[click] Nuestra instancia dedicada está casi ociosa: sin errores de carga, datos con un minuto de retraso.
+
+- **CUES**: ¿por qué no usar algo que ya existe? · planeta al minuto + índice + consultas · mi esfuerzo: la usabilidad → 429 y 504 = política de carga, no bugs · público: ~1M consultas/día, la wiki dice "no esperes alta confiabilidad" · el manual recomienda instancia propia a usuarios intensivos → la nuestra: CPU ~99% ociosa, cero 429/504, ~1 min de retraso
 - **BRIDGE**: "Con Overpass, una plantilla es solo una consulta..."
-- **GUARD**: El problema era la fragilidad y la escala, no la ambición. Reconocer a Overpass con calidez.
+- **GUARD**: Reconocer a Overpass con calidez. Decir "sobre todo", no "nunca es el software": hay bugs reales (memoria con `[date]`, `meta` lento). Las cifras propias son de los logs recientes, no un SLA. Sin specs del servidor. Agradecer a quienes operan las instancias públicas, no culparlos. Si preguntan: usamos la versión estándar 0.7.62, y todas nuestras consultas piden `meta`; desde 2025 casi todo el trabajo del mantenedor es contra bots (cuotas, listas negras).
 -->
 
 ---
@@ -529,25 +576,8 @@ out geom meta;</pre>
 <!--
 - **BEAT**: Cada plantilla es una línea de YAML, compilada en una consulta de Overpass. Solo cambia el ID de la relación de la ciudad. Por eso la cobertura es global: cualquier ciudad, cualquier plantilla, sin descargar nada antes.
 - **CUES**: una línea de YAML · rel 17483459 = Ciudad de México · la misma consulta, cualquier ciudad · node+way+relation a propósito: muestra la mezcla de geometrías
-- **BRIDGE**: "¿Y Overpass aguanta? Tiene mala fama..."
-- **GUARD**: Ser honesto: todavía no se puede copiar esta consulta desde la interfaz. Es una de las ideas pendientes del proyecto. "Cualquier ciudad" quiere decir cualquier ciudad con un límite administrativo en OSM: la búsqueda solo ofrece esos.
--->
-
----
-
-<div class="statement">
-
-# ¿Overpass es poco confiable?
-
-<div class="sub">La mala fama viene sobre todo de los servidores públicos saturados. Con una instancia propia, el mismo software responde bien.</div>
-
-</div>
-
-<!--
-- **BEAT**: Mucha gente cree que Overpass es inestable: errores 429, timeouts, consultas que fallan. Casi siempre es el servidor público, que recibe alrededor de un millón de consultas por día y hoy está por encima de su capacidad, en gran parte por bots. Nuestra instancia dedicada está casi ociosa: sin errores, la mayoría de las respuestas en menos de un segundo, datos con un minuto de retraso.
-- **CUES**: 429 y 504 = política de carga, no bugs · servidor público: ~1M consultas/día, la wiki dice "no esperes alta confiabilidad" · el manual recomienda instancia propia a usuarios intensivos · la nuestra: CPU ~99% ociosa, cero 429/504, p95 < 1 s, ~1 min de retraso
 - **BRIDGE**: "Eso es la cobertura. Segundo problema: las actualizaciones. Y no se consulta todo, todo el tiempo..."
-- **GUARD**: Decir "sobre todo", no "nunca es el software": hay bugs reales (memoria con `[date]`, `meta` lento). Las cifras propias son de los logs recientes, no un SLA. Sin specs del servidor. Agradecer a quienes operan las instancias públicas, no culparlos. Si preguntan: usamos la versión estándar 0.7.62, todas nuestras consultas piden `meta` y aun así responden en menos de un segundo; desde 2025 casi todo el trabajo del mantenedor es contra bots (cuotas, listas negras).
+- **GUARD**: Ser honesto: todavía no se puede copiar esta consulta desde la interfaz. Es una de las ideas pendientes del proyecto. "Cualquier ciudad" quiere decir cualquier ciudad con un límite administrativo en OSM: la búsqueda solo ofrece esos.
 -->
 
 ---
