@@ -176,8 +176,8 @@ section: Recorrido
 </div>
 
 <!--
-- **BEAT**: En vivo, en el navegador. Portada → buscar "Ciudad de México" → paradas de autobús → panel → mapa → colorear por silla de ruedas.
-- **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. página de la ciudad, filtrar transporte, paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por silla de ruedas: casi todo gris
+- **BEAT**: En vivo, en el navegador. Portada → buscar "Ciudad de México" → paradas de autobús → panel → mapa → colorear por operador.
+- **CUES**: 1. portada, mapas destacados · 2. buscar "Ciudad de México" · 3. página de la ciudad, filtrar transporte, paradas de autobús · 4. panel: qué hay, quién lo mapea, etiquetas, guardar · 5. mapa: antigüedad por defecto · 6. colorear por operador: acercar al centro, RTP y "Red de Transporte de Pasajeros" son el mismo
 - **SALIDA**: Demo bien → volver al deck, `g` 16 Enter (Plantillas para planificar), saltar 6-15. Falla (sin red, más de 10 s cargando) → volver al deck y seguir con →: las diapositivas 6-15 son la misma demo en capturas.
 - **BACKUP**: si la búsqueda falla, pegar la URL: osmforcities.org/es/area/17483459/dataset/bus-stops
 - **BRIDGE**: "Paradas de autobús es una plantilla entre más de 200..." (o, si falló: "Lo mismo, en capturas. Empezando por la búsqueda...")
@@ -315,23 +315,23 @@ title: El mapa, vivo y filtrable
 <!--
 - **BEAT**: El mapa abre coloreado según la antigüedad de las ediciones, por defecto: qué tan vivos están los datos. Luego se puede colorear según las etiquetas clave.
 - **CUES**: antigüedad es la vista por defecto · 317 paradas editadas en la última semana · se nota dónde alguien mapeó hace poco: las rutas del poniente
-- **BRIDGE**: "Por ejemplo, accesibilidad en silla de ruedas en paradas de autobús..."
+- **BRIDGE**: "Por ejemplo, coloreado según el operador..."
 - **GUARD**: "Vivo" es la palabra que hay que aterrizar: el mapa es el pulso, no decoración.
 -->
 
 ---
-title: Paradas según acceso en silla de ruedas
+title: Paradas según operador
 ---
 
-<Shot src="/captures/cdmx-bus-wheelchair.jpeg" :vw="1216" :vh="759" />
+<Shot src="/captures/cdmx-bus-operator.jpeg" :vw="1216" :vh="759" />
 
-<div class="shot-cap">Paradas de autobús según acceso en silla de ruedas: casi ninguna tiene el dato.</div>
+<div class="shot-cap">Paradas según operador: «RTP» y «Red de Transporte de Pasajeros» son el mismo.</div>
 
 <!--
-- **BEAT**: El mismo mapa, coloreado según acceso en silla de ruedas. Casi todo es gris: de 1,861 paradas, solo unas 40 tienen el dato.
-- **CUES**: sí 34 · no 5 · limitado 2 · sin dato 1,830 · cobertura 2% · en París era 79%
+- **BEAT**: El mismo mapa, coloreado según el operador. Se ven las rutas: RTP, el Trolebús, Metrobús, los transportes eléctricos. Y se ve algo más: el mismo operador escrito de dos formas, "RTP" y "Red de Transporte de Pasajeros". Lo mismo con Servicio de Transportes Eléctricos, con y sin "de la Ciudad de México".
+- **CUES**: 65% tiene operador · Red de Transporte de Pasajeros 438 + RTP 26 · STE 312 + 115 · gris = sin dato, 664 · unificar nombres = tarea para un mapatón
 - **BRIDGE**: "Paradas de autobús es una plantilla entre más de 200..."
-- **GUARD**: Presentarlo como invitación a mapear, nunca como falla de los mapeadores. El gris es un mapa de trabajo pendiente: una tarde de mapatón lo cambia.
+- **GUARD**: Presentarlo como invitación a mapear, nunca como falla de los mapeadores. Si preguntan por accesibilidad: el panel de etiquetas mostró silla de ruedas en 2%, el mismo mapa se puede colorear por ese dato.
 -->
 
 ---
@@ -365,7 +365,7 @@ section: Para qué sirve
 
 <!--
 - **BEAT**: Paradas de autobús es una plantilla entre más de 200, todas basadas en la wiki. Cada una responde una pregunta concreta sobre la ciudad. Son los cuatro usos que propuse en el resumen de la charla.
-- **CUES**: [click] infraestructura: aceras, ciclovías, calles, con superficie e iluminación · [click] servicios: escuelas, clínicas, farmacias, dónde hay y dónde no · [click] mapeo comunitario: el panel de etiquetas dice qué falta, el 2% de silla de ruedas · [click] cambios: guardar y recibir el correo
+- **CUES**: [click] infraestructura: aceras, ciclovías, calles, con superficie e iluminación · [click] servicios: escuelas, clínicas, farmacias, dónde hay y dónde no · [click] mapeo comunitario: el panel de etiquetas dice qué falta, el 2% de silla de ruedas, el operador escrito de dos formas · [click] cambios: guardar y recibir el correo
 - **BRIDGE**: "Y no es solo planificación urbana..."
 - **GUARD**: La plataforma muestra dónde están las cosas, no calcula distancias ni cobertura: decir "en el mapa se ve dónde faltan". Advertir que una plantilla listada no garantiza datos en la ciudad, por ejemplo refugios de montaña en ciudades del desierto.
 -->
