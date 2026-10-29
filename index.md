@@ -22,7 +22,9 @@ online.
   <p class="links">
     <a href="sotm-latam-2026/" target="_blank" rel="noopener"
        aria-label="Slides for OSM for Cities: Datos abiertos para planificación urbana en América Latina, in Spanish, opens in a new tab">Slides</a>
-    <span class="meta">Spanish</span>
+    <span class="meta">Spanish</span> ·
+    <a href="https://pretalx.cienciaenmexico.com/sotmlatam2026/talk/RWKCV7/" target="_blank" rel="noopener"
+       aria-label="Programme entry for OSM for Cities: Datos abiertos para planificación urbana en América Latina, opens in a new tab">Programme</a>
   </p>
 </article>
 
