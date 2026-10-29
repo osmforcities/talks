@@ -43,7 +43,9 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          cache-dependency-path: sotm-paris-2026/deck/pnpm-lock.yaml
+          cache-dependency-path: |
+            sotm-paris-2026/deck/pnpm-lock.yaml
+            sotm-latam-2026/deck/pnpm-lock.yaml
 
       # playwright-chromium is a dependency for PDF export only. Without this the
       # job downloads ~150 MB of Chromium it never uses.
@@ -66,6 +68,17 @@ jobs:
       # leaves _site root-owned. Jekyll skips this directory entirely, so the copy
       # is what creates it.
       - run: sudo cp -r sotm-paris-2026/deck/dist _site/sotm-paris-2026
+
+      # Same three steps for the Latam deck, which has its own lockfile.
+      - run: pnpm install --frozen-lockfile
+        working-directory: sotm-latam-2026/deck
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+      - run: pnpm exec slidev build --base /talks/sotm-latam-2026/ --without-notes --out dist
+        working-directory: sotm-latam-2026/deck
+
+      - run: sudo cp -r sotm-latam-2026/deck/dist _site/sotm-latam-2026
 
       - uses: actions/upload-pages-artifact@v5
 

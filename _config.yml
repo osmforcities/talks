@@ -11,3 +11,4 @@ description: Conference talks about OSM for Cities, a platform for browsing Open
 exclude:
   - README.md
   - sotm-paris-2026
+  - sotm-latam-2026
