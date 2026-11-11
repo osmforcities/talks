@@ -17,6 +17,19 @@ online.
 ## 2026
 
 <article class="talk">
+  <p class="where">
+    <a href="https://github.com/transportkollektiv/meetup/wiki" target="_blank" rel="noopener"
+       aria-label="Open Transport Meetup wiki, opens in a new tab">Open Transport Meetup</a>
+    · online, 11 November
+  </p>
+  <h3>OSM for Cities: City-level mobility data from OpenStreetMap</h3>
+  <p class="links">
+    <a href="otm-2026/" target="_blank" rel="noopener"
+       aria-label="Slides for OSM for Cities: City-level mobility data from OpenStreetMap, opens in a new tab">Slides</a>
+  </p>
+</article>
+
+<article class="talk">
   <p class="where">State of the Map Latam · Ciudad de México, 27–29 October</p>
   <h3 lang="es">OSM for Cities: Datos abiertos para planificación urbana en América Latina</h3>
   <p class="links">
