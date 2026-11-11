@@ -1,0 +1,3 @@
+# Prettier rewrites Slidev's per-slide frontmatter (blank line after ---), which
+# splits every block into extra slides and drops all section keys. Never format.
+slides.md

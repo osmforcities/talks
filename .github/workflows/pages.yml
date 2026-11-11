@@ -46,6 +46,7 @@ jobs:
           cache-dependency-path: |
             sotm-paris-2026/deck/pnpm-lock.yaml
             sotm-latam-2026/deck/pnpm-lock.yaml
+            otm-2026/deck/pnpm-lock.yaml
 
       # playwright-chromium is a dependency for PDF export only. Without this the
       # job downloads ~150 MB of Chromium it never uses.
@@ -79,6 +80,17 @@ jobs:
         working-directory: sotm-latam-2026/deck
 
       - run: sudo cp -r sotm-latam-2026/deck/dist _site/sotm-latam-2026
+
+      # And for the Open Transport Meetup deck.
+      - run: pnpm install --frozen-lockfile
+        working-directory: otm-2026/deck
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+      - run: pnpm exec slidev build --base /talks/otm-2026/ --without-notes --out dist
+        working-directory: otm-2026/deck
+
+      - run: sudo cp -r otm-2026/deck/dist _site/otm-2026
 
       - uses: actions/upload-pages-artifact@v5
 
