@@ -179,7 +179,7 @@ section: Tour
 - **CUES**: 1. home, featured maps, no account needed · 2. search "Karlsruhe": Nominatim, one result per place, population from the boundary's own tag · 3. city page: facts and links, topics and categories with icons, each card with description, counts, last edit · 4. bus stops, about 590: what is there (counts, edit recency bands), who maps it (last edit only, no full history), tags: shelter, bench, tactile paving and lit above 90%, operator 82%, wheelchair 33% · 5. save = follow, changes by email · download GeoJSON · share URL · 6. map: opens on edit recency · 7. color by wheelchair: two thirds not yet checked · color by operator: "Verkehrsbetriebe Karlsruhe GmbH" 461, plus "VBK" and the name without "GmbH", the same operator written three ways
 - **BACKUP**: if the search fails, paste the URL: osmforcities.org/en/area/62518/dataset/bus-stops
 - **BRIDGE**: "Bus stops is one dataset. For this meetup I picked a few more on mobility..."
-- **GUARD**: Overview pace: the panel is read, not explained row by row. The recency bands are my own arbitrary cut, say so. Present gaps and spelling variants as an invitation to map, never as a failure of the mappers. Mention the email in passing: saving asks for an email because updates need somewhere to go. Figures measured on 11 Nov 2026: read them off the screen, they drift. Do not demo Stuttgart: its datasets come up empty at the moment.
+- **GUARD**: Overview pace: the panel is read, not explained row by row. The recency bands are my own arbitrary cut, say so. Present gaps and spelling variants as an invitation to map, never as a failure of the mappers. Mention the email in passing: saving asks for an email because updates need somewhere to go. Figures measured on 11 Nov 2026: read them off the screen, they drift.
 -->
 
 ---
@@ -230,20 +230,20 @@ section: Mobility
 
 # Mobility templates
 
-<div class="lede">31 templates on transit, streets, cycling and walking. Each one is a dataset for any city.</div>
+<div class="lede">32 templates on transit, streets, cycling and walking. Each one is a dataset for any city.</div>
 
 <div class="tpl-grid">
 <div><h4>Public transit</h4>Public transit<br>Bus stops<br>Railway stations<br>Tram stops<br>Subway entrances<br>Transit platforms<br>Ferry terminals<br>Taxi ranks</div>
 <div><h4>Networks</h4>Rail tracks<br>Busways<br>Bus lanes<br>Streets and roads<br>Bridge outlines<br>Tunnels</div>
 <div><h4>Cycling</h4>Cycling infrastructure<br>Cycleways<br>Cycle lanes<br>Bicycle parking<br>Bicycle rental</div>
 <div><h4>Walking</h4>Footways and paths<br>Car-free paths<br>Streets with sidewalks<br>Crossings<br>Steps<br>Curbs</div>
-<div><h4>Traffic and parking</h4>Parking<br>EV charging<br>Traffic signs<br>Traffic signals<br>Speed cameras<br>Traffic calming</div>
+<div><h4>Traffic and parking</h4>Parking<br>EV charging<br>Fuel<br>Traffic signs<br>Traffic signals<br>Speed cameras<br>Traffic calming</div>
 </div>
 
 <div style="margin-top: 1.25rem; font-size: 1.15rem; color: var(--ofc-accent)">Reworked recently. If a tag, a name or a grouping looks off, feedback is welcome.</div>
 
 <!--
-- **BEAT**: For this meetup, the mobility part of the catalogue: 31 templates. Every name here is a dataset that exists for any city, built from the tags the OSM wiki and the iD presets document. The next slides open five groups, with Karlsruhe live next to them.
+- **BEAT**: For this meetup, the mobility part of the catalogue: 32 templates. Every name here is a dataset that exists for any city, built from the tags the OSM wiki and the iD presets document. The next slides open five groups, with Karlsruhe live next to them.
 - **CUES**: five groups · transit stops and stations · networks as lines: rail, bus priority, streets · cycling · walking and accessibility: sidewalks, crossings, steps, curbs · traffic and parking · names and one-line descriptions exist in English, German, French, Spanish and Portuguese
 - **BRIDGE**: "Starting with public transit..."
 - **ASK**: The templates went through a refactor in the last weeks: new topics, parent templates, new names and descriptions, some templates dropped or merged. This audience knows transport tagging well. Ask them directly: if a tag, a name or a grouping seems off on any of the next slides, interrupt or write it in the chat.
@@ -340,7 +340,7 @@ title: Rail tracks
 <!--
 - **BEAT**: Rail tracks complements the stops: the network itself. Four railway values in one dataset. Templates can choose their opening view, and this one opens on track type instead of edit recency.
 - **CUES**: live, Karlsruhe rail tracks, about 2,900 segments · tram 1,465, rail 1,279, light rail 179: the tram-train city · electrified 98% · usage and service show yards, sidings, main lines
-- **BRIDGE**: "From rails to bicycles..."
+- **BRIDGE**: "On the map..."
 - **GUARD**: Segments are OSM ways, not kilometres: the panel shows length too, read it off the screen. Disused and abandoned tracks are not included. In a metropolis this dataset can hit the size limit today.
 -->
 
@@ -355,7 +355,7 @@ title: Rail tracks in Karlsruhe
 <!--
 - **BEAT**: The map opens colored by track type. Karlsruhe is a good example: trams in the city, mainline rail around it, and light rail where the tram-train changes network.
 - **CUES**: 525 km of track · electrification tagged on 98% · other views: electrification, usage, service track
-- **BRIDGE**: "Now cycling..."
+- **BRIDGE**: "The same tracks, by electrification..."
 -->
 
 ---
@@ -364,7 +364,7 @@ title: Rail tracks by electrification
 
 <Shot src="/captures/ka-rail-electrified.jpeg" :vw="1200" :vh="757" />
 
-<div class="shot-cap">The same tracks by electrification: overhead line almost everywhere, the harbour and freight yards without.</div>
+<div class="shot-cap">The same tracks by electrification: overhead line almost everywhere.</div>
 
 <!--
 - **BEAT**: Same dataset, another view. Blue is overhead line, orange is not electrified.
@@ -393,7 +393,7 @@ title: Rail tracks by service
 <div class="shot-cap">By service: yards, spurs, sidings and crossovers stand out from the running lines.</div>
 
 <!--
-- **BEAT**: The service view highlights everything that is not a running line: the freight yard in the west, the depot, the tracks around the main station.
+- **BEAT**: The service view highlights everything that is not a running line: yards, depots and station tracks.
 - **CUES**: yard 643 · spur 251 · siding 180 · crossover 84
 - **BRIDGE**: "Now cycling..."
 - **GUARD**: The legend shows one raw value, turning_loop, without a readable label. If someone notices: yes, noted.
@@ -421,7 +421,7 @@ title: Cycling
 <!--
 - **BEAT**: A cycleway drawn as its own line and a lane tagged on a street are two different things in OSM, and counting only the first undercounts a city's network. Cycle lanes lists explicit values on purpose: `cycleway=no` and `cycleway=separate` are mapped absences, so a wildcard would count streets that have no lane.
 - **CUES**: live, Karlsruhe cycling infrastructure · about 630 separate cycleways, about 1,330 street segments with lanes or tracks: twice as many · cycleways: surface 97%, lit 79%, smoothness 47% · on lanes, surface and one-way describe the street, not the lane, so they are not offered as views
-- **BRIDGE**: "And where the trip ends..."
+- **BRIDGE**: "On the map..."
 - **GUARD**: Counts are segments, not kilometres. Do not rank cities on this slide. `bicycle=designated` paths and cycle routes (relations) are not included.
 -->
 
@@ -613,13 +613,13 @@ section: Global coverage
 <!--
 - **BEAT**: Covering any city without downloading and processing the planet: Overpass already does that part. It keeps a copy of the planet updated by the minute, it is mature software from the OSM community, and it indexes the data and answers any query. Let Overpass do the querying, and let my effort go into usability.
 
-[click] Many people think Overpass is unstable: 429 errors, timeouts, failing queries. Almost always that is the public server, which gets around a million queries a day and is above its capacity, largely because of bots.
+[click] Many people think Overpass is unstable: 429 errors, timeouts, failing queries. Almost always that is a public server, shared by everyone and often at capacity.
 
-[click] A dedicated instance sits almost idle: no load errors, data about one minute behind.
+[click] A dedicated instance does not carry that shared load, and the same software responds well.
 
-- **CUES**: why not use what exists? · planet by the minute + index + queries · my effort: usability → 429 and 504 = load policy, not bugs · public: ~1M queries/day, the wiki says do not expect high reliability · the manual recommends an own instance for heavy users → ours: almost idle, no 429/504, ~1 min behind
+- **CUES**: why not use what exists? · planet by the minute + index + queries · my effort: usability → 429 and 504 = load policy, not bugs · public servers: shared, often at capacity, heavy users are pointed to their own instance → dedicated: same software, no shared load
 - **BRIDGE**: "With Overpass, a template is just a query..."
-- **GUARD**: Credit Overpass warmly. Say "mostly", not "never the software": there are real bugs. Own figures are from recent logs, not an SLA. No server specs. Thank the people who run the public instances, do not blame them. If asked: standard release, and every query asks for `meta`.
+- **GUARD**: Credit Overpass warmly. Say "mostly", not "never the software": there are real bugs. No figures, no server specs. Thank the people who run the public instances, do not blame them. If asked: standard release, and every query asks for `meta`.
 -->
 
 ---
@@ -757,10 +757,10 @@ title: Streets of Berlin by road type
 <div class="shot-cap">Coming soon: the 88,000 street segments of Berlin, colored by road type. Development build.</div>
 
 <!--
-- **BEAT**: Every street in Berlin, from vector tiles, with the same panel as always. Colored by road type: the hierarchy of the network, from motorways to living streets. Today this dataset is refused as too large.
+- **BEAT**: Every street in Berlin, from vector tiles, with the same panel as always. Colored by road type: the hierarchy of the network, from motorways to living streets. A dataset this size does not fit in the page today.
 - **CUES**: 88.3k segments · 6,127 km · 813 mappers · residential 51 thousand, secondary 16 thousand, tertiary 10 thousand, primary 5 thousand · other views: speed limit (tagged on 95%, mostly 30 and 50), surface, lit, sidewalk
 - **BRIDGE**: "And this is where I need your help..."
-- **GUARD**: Capture from a development build, not production. Counts are OSM segments, not kilometres per speed limit. If asked when: "in the coming weeks, it is in testing". If asked about bigger cities: big datasets are built in the background and the app sends an email when the map is ready. What does not fit is refused with a clear message. Whole cities yes; metropolitan regions or states are not the goal. For this audience: this is what unlocks road and rail networks of big cities.
+- **GUARD**: Capture from a development build, not production. Counts are OSM segments, not kilometres per speed limit. If asked when: "soon, it is in testing", no date. If asked about bigger cities: big datasets are built in the background and the app sends an email when the map is ready. What does not fit is refused with a clear message. Whole cities yes; metropolitan regions or states are not the goal. For this audience: this is what unlocks road and rail networks of big cities.
 -->
 
 ---

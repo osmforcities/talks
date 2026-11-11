@@ -1,6 +1,6 @@
 # Deck — OSM for Cities, Open Transport Meetup 2026
 
-English deck for the Open Transport Meetup, online, 11 November 2026. Adapted from [`../../sotm-latam-2026/deck`](../../sotm-latam-2026/deck), with a live mobility datasets tour in place of the screenshot walk-through.
+English deck for the Open Transport Meetup, 11 November 2026. Adapted from [`../../sotm-latam-2026/deck`](../../sotm-latam-2026/deck), with a tour of the mobility templates and Karlsruhe as the example city.
 
 Slidev. Source of truth is [`slides.md`](slides.md); speaker notes live in the HTML
 comment at the end of each slide and show up in presenter mode.
